@@ -28,11 +28,11 @@ export const Header = () => {
   return (
     <div className={'header_con'}>
       <div className={'logo_nav_con'}>
-        
-        <div className={'logo'}>
-          <img src='/logo.jpg'></img>
-        </div>
-        <div className={'header'}>
+        <div className={'logo_button'}>
+          <div className={'logo'}>
+            <img src='/logo.jpg' alt='' className={'logo_img'}></img>
+          </div>
+        <div className={'button'}>
           {navigateMenu.map((menu) => (
             <div onClick={() => navigate(menu.path)} className={isActive(menu.path) ? 'navigate-active' : 'navigate'}>
               <>{menu.name}</>
@@ -40,6 +40,7 @@ export const Header = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   )
 };

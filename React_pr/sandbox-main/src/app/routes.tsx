@@ -6,6 +6,7 @@ import {UserCard} from "../pages/user-card";
 import {News} from "../pages/news";
 import { AuthGuard } from '../components/AuthGuard/AuthGuard';
 import { LoginForm } from '../pages/Login/LoginForm';
+import { Poster } from '../pages/poster/Poster';
 
 export const AppRoutes = () => {
   const[isAuthenticated, setIsAuthenticated ] = useState(false);
@@ -30,6 +31,7 @@ export const AppRoutes = () => {
       >
         <Route path="users" element={<Users />} />
         <Route path="users/:id" element={<UserCard />} />
+        <Route path="poster" element={<Poster />} />
         <Route path="news" element={<News />} />
         <Route path="about_us" element={<>О нас</>} />
         <Route index element={<Navigate to="/users" />} />

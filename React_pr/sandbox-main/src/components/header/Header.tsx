@@ -1,55 +1,36 @@
 import React from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
-import './Header.css';
-
-type HeaderProps = {
-  setIsAuthenticated: (value: boolean) => void;
-};
+import './Header.scss';
 
 
-export const Header = ({setIsAuthenticated}: HeaderProps) => {
+export const Header = () => {
   const {pathname} = useLocation();
-  
   const navigate = useNavigate();
-
   const isActive = (path: string) => pathname === path;
-
-
- const handleLogout = () => {
-    localStorage.removeItem('isAuthenticated');
-    setIsAuthenticated(false); 
-    navigate('/login');
-  };
-
-  /*const handleLogout = () => {
-    logoutFn();
-    navigate('/login'); 
-    window.location.reload(); /*чтобы точно отобразилась что мы вышли из ака
-  };*/
-
   const navigateMenu = [
     {
-      name: 'Пользователи',
-      path: '/users',
+      name: 'Главная',
+      path: '/main',
+    },
+    {
+      name: 'Афиша',
+      path: '/poster',
     },
     {
       name: 'Новости',
       path: '/news',
     },
     {
-      name: 'О нас',
-      path: '/about_us',
+      name: 'О театре',
+      path: '/about_theater',
     },
     ];
-   
-
-
   return (
     <div className={'header_con'}>
       <div className={'logo_nav_con'}>
         
         <div className={'logo'}>
-          <div className='cirius'></div>
+          <img src='/logo.jpg'></img>
         </div>
         <div className={'header'}>
           {navigateMenu.map((menu) => (
@@ -57,7 +38,6 @@ export const Header = ({setIsAuthenticated}: HeaderProps) => {
               <>{menu.name}</>
             </div>
           ))}
-          
         </div>
       </div>
     </div>

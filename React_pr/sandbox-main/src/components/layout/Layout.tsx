@@ -4,15 +4,14 @@ import {Header} from "../header/Header";
 
 
 export type LayoutProps = {
-  setIsAuthenticated: (value: boolean) => void;
   children?: React.ReactNode;
 };
 
-export const Layout = ({children, setIsAuthenticated }: LayoutProps) => {
+export const Layout = ({children}: LayoutProps) => {
 
   return (
     <div>
-        <Header setIsAuthenticated={setIsAuthenticated} />
+        <Header />
         
         {children}
     </div>

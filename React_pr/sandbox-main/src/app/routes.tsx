@@ -4,37 +4,28 @@ import {Layout} from "../components/layout";
 import {Users} from "../pages/users";
 import {UserCard} from "../pages/user-card";
 import {News} from "../pages/news";
-import { AuthGuard } from '../components/AuthGuard/AuthGuard';
-import { LoginForm } from '../pages/Login/LoginForm';
+
+
 import { Poster } from '../pages/poster/Poster';
 
 export const AppRoutes = () => {
-  const[isAuthenticated, setIsAuthenticated ] = useState(false);
-  
-  useEffect(():void => {
-    const savedAuth:string|null = localStorage.getItem('isAuthenticated');
-    if (savedAuth) {
-      setIsAuthenticated(JSON.parse(savedAuth));
-    }
-  }, []);
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <AuthGuard isAuth={isAuthenticated}  privateFallback={<LoginForm setIsAuthenticated={setIsAuthenticated} />}>
-            <Layout setIsAuthenticated={setIsAuthenticated}>
+            <Layout>
               <Outlet />
             </Layout>
-            </AuthGuard>
+          
         }
       >
-        <Route path="users" element={<Users />} />
-        <Route path="users/:id" element={<UserCard />} />
-        <Route path="poster" element={<Poster />} />
+        <Route path="main" element={<Users />} />
+        <Route path="main/:id" element={<UserCard />} />
         <Route path="news" element={<News />} />
-        <Route path="about_us" element={<>О нас</>} />
-        <Route index element={<Navigate to="/users" />} />
+        <Route path="poster" element={<Poster />} />
+        <Route path="about_theater" element={<>О нас</>} />
+        <Route index element={<Navigate to="/main" />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

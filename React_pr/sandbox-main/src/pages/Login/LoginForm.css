@@ -1,0 +1,104 @@
+.login_con{
+    width: 1920px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-con-form{
+    margin-top: 291px;
+    height: auto;
+    width: 600px;
+
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.login_text_h1{
+    font-family:'Poppins';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.login-label1{
+    font-size: 20px;
+    font-family:'Poppins';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-left: 20px;
+
+}
+.login-label2{
+    font-size: 20px;
+    font-family:'Poppins';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-left: 20px;
+    margin-top: 5px !important;
+
+}
+
+.login-form input{
+    width: 555px;
+    margin-left: 20px;
+    height: 45px;
+    border-radius: 7px;
+    border: 1px solid #929292
+}
+
+.login_button{
+    font-size: 15px !important;
+    font-family:'Poppins';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-top: 5px;
+    color: #000000;
+    border-radius: 12px;
+    align-items: center;
+    width: 125px;
+    height: 52px;
+    margin-left: 251px;
+    background-color: #ffffff;
+    border: 1px solid #929292;
+    cursor: pointer;
+}
+.login_button:hover{
+    border: none;
+    background-color: #DCDEEE;
+    color: #000000;
+
+}
+.error-text{
+    margin-left: 20px;
+}
+
+.error_message{
+    font-size: 20px;
+    font-family:'Poppins';
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-left: 20px;
+    background-color: rgb(255, 89, 89);
+    height: 40px;
+    padding-top: 15px;
+    width: 555px;
+    padding-left: 10px;
+    border-radius: 7px;
+    color: #ffffff;
+    border: 1px solid #881010;
+    
+    
+
+}
+
+

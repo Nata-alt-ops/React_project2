@@ -1,0 +1,14 @@
+.navigate {
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.navigate:hover,
+.navigate-active
+{
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 0;
+  border-bottom: 2px solid white;
+}

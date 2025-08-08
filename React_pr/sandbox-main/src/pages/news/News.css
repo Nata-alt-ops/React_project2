@@ -1,0 +1,296 @@
+body{
+  background-color: #FAFBFC;
+}
+/*Кнопки навигации*/
+.navigate {
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 0;
+}
+.navigate:hover,
+.navigate-active
+{
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 0;
+  border-bottom: 2px solid white;
+}
+/*Тело страницы пользователи*/
+.news_body{
+  background-color: #FAFBFC;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+
+/*Контйенер с поиском и списком пользователей*/
+.news_con{
+  width: 1572px;
+  height:auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/*Стили дял поисковика*/
+.search_news{
+  background-color: #F6F6F7 !important;
+  border: 2px solid #8f8e8e !important;
+  border-radius: 4px;
+  width: 242px;
+  height: 32px;
+  font-family: 'Noto Sans';
+  font-size: 14px !important;
+  font-weight: 400  ;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin-top: 26px;
+  margin-left: 151px;
+}
+/*контейнер для новостей*/
+.news_table{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:flex-start;
+    padding-left: 127px;
+    padding-top: 60px;
+
+}
+/* иконки изменить и удалить */
+.actions_icons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1px;
+  gap: 10px;
+}
+/*стили для иконок*/
+.icon_1, .icon_2 {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  
+}
+/*иконки при  наведении*/
+.icon_1:hover, .icon_2:hover {
+  opacity: 0.7;
+}
+/*сама карта одной новости*/
+.news-card {
+  position: relative; 
+}
+.news-card .actions_icons {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+}
+.news-card{
+   width: 316px;
+   height: 436px;
+   gap:20px; 
+   background-color: #ffffff;
+   overflow: hidden;
+}
+.news_img{
+    width: 316px;
+    height: 280px;
+}
+.news-title{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение в 2 строки */
+    -webkit-box-orient: vertical;
+    line-clamp: 2; /* Стандартное свойство */
+    box-orient: vertical; /* Стандартное свойство */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 56px; /* 2 строки * line-height */
+    line-height: 1.4;
+    color: #000000;
+}
+.news-description{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение в 2 строки */
+    -webkit-box-orient: vertical;
+    line-clamp: 2; /* Стандартное свойство */
+    box-orient: vertical; /* Стандартное свойство */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    color: #3D3D3D;
+}
+.news-source{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение в 2 строки */
+    line-clamp: 2; /* Стандартное свойство */
+    box-orient: vertical; /* Стандартное свойство */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    color: #000000b8;
+}
+.news_add_user{
+  border-radius: 10px;
+    width: 161px;
+    height: 37px;
+    font-family: 'Noto Sans';
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    margin-top: 26px;
+    margin-left: 868px;
+    cursor: pointer;
+    color: #000000b8;
+    border: none;
+    background-color: #ffffff;
+}
+.news_add_user:hover{
+  background-color: #DCDEEE !important;
+}
+.r{
+    display: flex;
+    gap: 20px;
+}
+.e{
+    margin-left: 122px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.news_body:has(.search_news:not(:placeholder-shown)) .news_table {
+    justify-content: flex-start;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Стили для модального окна и формы */
+.modal_window {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 600px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  left:200px;
+  height: auto;
+  overflow: hidden;
+}
+
+.form-group-label{
+  /*background-color: cornflowerblue;*/
+
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+
+  
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.label_title{
+  font-size: 25px;
+  font-family: 'Roboto';
+  font-weight: 600;
+
+}
+
+.form-group-label input, textarea{
+  width: 596px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #8f8e8e;
+  margin-top: 5px;
+  font-family: 'Roboto';
+  font-size: 15px;
+}
+.form-group-label textarea{
+  width: 596px;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid #8f8e8e
+}
+
+.error {
+  border-color: #f44336 !important;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 14px;
+  
+}
+.form-group-label select{
+  width: 605px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #8f8e8e !important;
+  margin-top: 5px;
+}
+
+.modal-button{
+  border: 2px solid #5242e2 !important ;
+  border-radius: 7px;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 20px;
+   background-image: linear-gradient(to left, #5242e2,
+      #2ebdd6,
+      #38ec7d );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  cursor: pointer;
+
+}
+.modal-button:hover{
+  border: 2px solid #f12828 !important ;
+   background-image: linear-gradient(to left, #f12828,
+      #d83dc3,
+      #f3ff4b );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+
+
+
+

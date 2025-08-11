@@ -170,18 +170,45 @@ export const Users = () => {
 
   /*Что мы видим в итоге*/ 
   return (
+    <div className='site_con'>
     <div className='main_con'>
       <div className='main_photo'>
       <img src='/theatre.jpg' alt='' className='photo_theatre'></img>
-     
-       <h1 className='text_h1'>Казанский театр юного зрителя</h1>
+      {/*<h1 className='text_h1'>Казанский театр юного зрителя</h1>*/}
+      <div className='text'>
+        <h1 className='text_h1'>Казанский театр юного зрителя</h1>
+      </div>
         <div className='back_tofront'>
         <img src='/Back.png' alt='' className='button_back'></img>
         <img src='/Tofront.png' alt='' className='button_tofront'></img>
       </div>
-       </div>
+      </div>
     </div>
-    
+    <div className='main_con2'>
+      <div className='description_con'>
+
+     
+      <div className='description_all'>
+      <div className='description'>
+        <p>Дата основания</p>
+        <p>2020-2021 год</p>
+        <p>Абсолютно для всех</p>
+      </div>
+      <div className='description_2'>
+        <p>1932 год</p>
+        <div className='w'>
+        <p>32 спектакля</p>
+        <p>0+</p>
+        </div>
+      </div>
+      </div>
+      
+      <div className='description_link'>
+        <button>Узнать подробнее</button>
+      </div>
+    </div>
+     </div>
+    </div>
   )
 };
 

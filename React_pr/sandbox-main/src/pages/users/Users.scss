@@ -1,12 +1,28 @@
 @import '@fontsource/inter';
+
 @mixin heading_1 {
   font-family:'Inter';
   font-weight: 700;
   font-size: 72px;
-  line-height:100;
+  line-height:1.2;
   letter-spacing:0.2px;
-  color: #000000
+  color: #ffffff;
+  position: absolute;
+  top: 75%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: left;
+  margin: 0;
+  padding: 0;
 };
+
+@mixin description{
+  font-family: 'Inter';
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0.2px;
+}
 
 @mixin main_con{
   background-color: #175AE4;
@@ -23,8 +39,7 @@
   width: 1280px;
   height: 529px;
   position: relative;
-
-
+  overflow: hidden;
 }
 
 
@@ -35,8 +50,6 @@
 
 .main_photo{
   @include main_photo();
-  position: relative; 
-  overflow: hidden;
   &::before {
     content: '';
     position: absolute;
@@ -45,9 +58,9 @@
     width: 1280px;
     height: 529px;
     background: linear-gradient(
-      to top,
+      to right,
       rgba(0, 0, 0, 0.7) 0%,  
-      rgba(0, 0, 0, 0.3) 100% 
+      rgba(0, 0, 0, 0.3) 50% 
     );
     z-index: 1;
   }
@@ -58,25 +71,20 @@
     left: 0;
     width: 1280px;
     height: 529px;
-    object-fit: cover; // изображение заполняет контейнер без искажений
+  
     z-index: 0; // фон — самое низкое
   }
 
   .text_h1 {
     @include heading_1();
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; // над градиентом
-    text-align: center;
-    width: 80%; // чтобы не вылезало на больших экранах
+    
+}
   }
-
   .back_tofront {
     position: absolute;
     bottom: 20px;
-    left: 50%;
+    left: 92%;
+    top: 80%;
     transform: translateX(-50%);
     display: flex;
     gap: 16px;
@@ -94,13 +102,6 @@
       }
     }
   }
-}
-
-
-
-
-
-
 
 body{
   background-color: #FFFFFF;
@@ -119,389 +120,58 @@ body{
   border-radius: 0;
   border-bottom: 2px solid white;
 }
-/*Тело страницы пользователи*/
-.users_body{
-  background-color: #FAFBFC;
-  /*Использовался для правильного размещения контейнера
-  background-color: chocolate;*/
+
+.main_con2{
+  height: 120px ;
+  background-color: aquamarine;
   width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 32px;
-}
-
-/*Контйенер с поиском и списком пользователей*/
-.users_con{
-  width: 1572px;
-  height:auto;
-  /*background-color: cornflowerblue;*/
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-/*Стили для поисковика*/
-.search{
-  background-color: #F6F6F7 !important;
-  border: 2px solid #8f8e8e !important;
-  border-radius: 4px;
-  width: 242px;
-  height: 32px;
-  font-family: 'Noto Sans';
-  font-size: 14px !important;
-  font-weight: 400  ;
-  line-height: 20px;
-  letter-spacing: 0;
-  margin-top: 26px;
-  margin-left: 26px;
-}
-
-/*Контейнер для таблицы с пользователями*/
-.table_con{
-  width: 1540px;
-  height: auto;
-  /*background-color: rgb(75, 248, 127) !important;*/
-  background-color: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/*Стили для таблицы с пользователями */
-.users_table {
-  width: 1513px;
-  border-collapse: collapse; 
-  font-family: 'Noto Sans';
-  text-align: left;
-  margin-top: 36px;
-  table-layout: auto;
-  padding: 16px;
-  margin-left: 27px;
-}
-  
-/*Шапка таблицы*/ 
-/*стили для названий столбцов*/
-.table_head{
-  font-size: 14px;
-  font-family: 'Noto Sans';
-  font-weight: 600;
-  line-height: 16px;
-  letter-spacing: 0;
-  color: #101018;
-  text-align: center;
-}
-
-/*Стили для 5 столбца действия*/
-.actions{
-  text-align: left;
-  padding-right:17px;
-}
-/*Стили для имени*/
-.name_text{
-  font-family: 'Noto Sans';
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0;
-  color: #35353A;
-  margin: 0px;
-}
-
-
-.username_text{
-  font-family: 'Noto Sans';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0;
-}
-
-.email_text{
-  font-family: 'Noto Sans';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0;
-  color: #175AE4;
-  cursor: pointer;
-}
-
-
-.address_text{
-  white-space: normal; 
-  word-break: break-word; 
-}
-.address_street, .address_suite, 
-.address_city, .address_zipcode,
-.address_geo_lat, .address_geo_lng{
-  margin-top: 0px;
-  margin-bottom: 0px;
   padding: 0px;
-}
-.label_geo{
-  font-weight: 600;
-  font-size: 14px;
-}
-
-
-/*горизонтальные полосы снизу*/
-.users_table tr {
-  border-bottom: 1px solid #E5E5E5; /* Цвет и толщина линии */
-}
-
-/*Убирает у последнего пользователя линию*/
-.users_table tr:last-child {
-  border-bottom: none;
-}
-
-/*Добавляет вертикальную линию слева у столбцов*/
-.users_table td
- {
-  position: relative;
-  padding-left: 15px;
-  border-left: 1px solid #f1f0f0;
-
-}
-.users_table td:first-child
-{ border-left:none;
-}
-
-/*Добавляет вертикальную линию слева у 3 и 4 столбца для столбцов в шапке*/
-.users_table th:nth-child(3),
-.users_table th:nth-child(4) {
-  position: relative;
-  padding-left: 15px;
-  border-left: 1px  #ebebeb;
-  
-}
-
-.users_table th:nth-child(1), 
-.users_table td:nth-child(1) {
-  width: auto; 
-}
-
-.users_table th:nth-child(2), 
-.users_table td:nth-child(2) {
-  width: auto; 
-}
-
-.users_table th:nth-child(3), 
-.users_table td:nth-child(3) {
-  width: auto; 
-}
-
-.users_table th:nth-child(4), 
-.users_table td:nth-child(4) {
-  width: auto; 
-}
-
-.users_table th:nth-child(5), 
-.users_table td:nth-child(5) {
-  width: auto; 
-}
-
-.users_table th:nth-child(6), 
-.users_table td:nth-child(6) {
-  width: auto; 
-}
-
-.users_table th:nth-child(7), 
-.users_table td:nth-child(7) {
-  width: auto; 
-}
-
-.users_table th:nth-child(8), 
-.users_table td:nth-child(8) {
-  width: auto; 
-}
-
-.actions_icon {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1px;
-  gap: 10px;
-}
-
-/*Стили для 1 иконки*/
-.icon_1{
-  padding-left: 0px;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  
-}
-/*Стили для 2 иконки*/
-.icon_2{
-  margin-left: 0px;
-   width: 28px;
-  height: 28px;
-  cursor: pointer;
-}
-
-
-/*Стили для кнопки добавления пользователя*/
-.add_user{
-  background-color: #d77ff1 !important;
-  border: 2px solid #7b0d85 !important;
-  border-radius: 4px;
-  width: 242px;
-  height: 37px;
-  font-family: 'Noto Sans';
-  font-size: 14px !important;
-  font-weight: 400  ;
-  line-height: 20px;
-  letter-spacing: 0;
-  margin-top: 28px;
-  margin-left: 753px;
-  cursor: pointer;
-  color: #ffffff;
-}
-.add_user:hover{
-  background-image:
-    linear-gradient(250deg,
-      #5242e2 10%,
-      #2ebdd6 50%,
-      #38ec7d 100%
-    );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-   border: 2px solid #5242e2 !important;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-/* Стили для модального окна и формы */
-.modal_window {
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  width: 802px;
-  max-width: 700px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  left:200px;
-  height: 600px;
-}
-.modal-form {
-  /*display: flex;
-  flex-direction: column;
-  gap: 100px;*/
+  justify-content:center;
+  
+
+  .description_con{
+    background-color: brown;
+    display: flex;
+    gap: 783px;
+    width: 1280px;
+    height: 120px;
+  
+    .description_all{
+    display: flex;
+    flex-direction: column;
+    margin-left:53px;
+    background-color: coral;
+    justify-content: center;
+    align-items: left;
+    gap: 0; 
+    margin-top: 0;
+    height: auto;
+
+    
+    }
+    .description{
+      display: flex;
+      @include description();
+      gap: 90px;
+      flex-wrap: nowrap;
+      width: 600px;
+      font-size: 12px;
+      color: #818181;
+    }
+    .description_2{
+      display: flex;
+      @include description();
+      color: #282828;
+      font-size: 24px;
+      gap: 86px;
+    }
+    .w{
+      display: flex;
+      gap:19px;
+    }
+  }  
 }
 
-.form-group {
-  /*display: flex;
-  flex-direction: column;
-  gap: 5px;*/
-}
-.group{
-  display: flex;
-  flex-direction: row;
-}
 
-
-.modal1{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.modal2{
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-}
-
-.modal3{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.modal2_group{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 197px;
-}
-
-.label_address_geo{
-  display: flex;
-  flex-direction: row;
-  gap: 357px;
-}
-
-.form-group input,
-.form-group select {
-  padding: 8px 20px;
-  border: 1px solid #E5E5E5;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 35px;
-}
-
-.form-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.submit-btn {
-  background-color: #175AE4;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cancel-btn {
-  background-color: #f1f1f1;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.error {
-  border-color: #ff4444 !important;
-}
-
-.error-text {
-  color: #ff4444;
-  font-size: 12px;
-}
-
-.Loading, .Error{
-  font-size: 50px;
-  text-align: center;
-  background-image:
-    linear-gradient(to left,
-      #5242e2 10%,
-      #2ebdd6 20%,
-      #38ec7d 50%
-    );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.city-filter{
-  background-color: #F6F6F7 !important;
-  border: 2px solid #8f8e8e !important;
-  border-radius: 4px;
-  width: 242px;
-  height: 37px;
-  font-family: 'Noto Sans';
-  font-size: 14px !important;
-  font-weight: 400  ;
-  line-height: 20px;
-  letter-spacing: 0;
-  margin-top: 27px;
-  margin-left: 26px;
-}

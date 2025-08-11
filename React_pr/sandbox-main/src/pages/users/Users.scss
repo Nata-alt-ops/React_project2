@@ -1,5 +1,109 @@
+@import '@fontsource/inter';
+@mixin heading_1 {
+  font-family:'Inter';
+  font-weight: 700;
+  font-size: 72px;
+  line-height:100;
+  letter-spacing:0.2px;
+  color: #000000
+};
+
+@mixin main_con{
+  background-color: #175AE4;
+  width: 100%;
+  height: 529px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@mixin main_photo{
+  background-color: #59f17f;
+  width: 1280px;
+  height: 529px;
+  position: relative;
+
+
+}
+
+
+
+.main_con{
+  @include main_con();
+}
+
+.main_photo{
+  @include main_photo();
+  position: relative; 
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 1280px;
+    height: 529px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,  
+      rgba(0, 0, 0, 0.3) 100% 
+    );
+    z-index: 1;
+  }
+
+ .photo_theatre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 529px;
+    object-fit: cover; // изображение заполняет контейнер без искажений
+    z-index: 0; // фон — самое низкое
+  }
+
+  .text_h1 {
+    @include heading_1();
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; // над градиентом
+    text-align: center;
+    width: 80%; // чтобы не вылезало на больших экранах
+  }
+
+  .back_tofront {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 2;
+
+    .button_back,
+    .button_tofront {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
 body{
-  background-color: #FAFBFC;
+  background-color: #FFFFFF;
 }
 /*Кнопки навигации*/
 .navigate {

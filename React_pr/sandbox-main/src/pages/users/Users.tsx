@@ -4,52 +4,14 @@ import { useForm } from 'react-hook-form';
 import { data, useNavigate } from 'react-router-dom';
 import './Users.scss';
 
-
-
-type User= {
+type Premiere = {
   id:number;
-  name:string;
-  username:string;
-  email:string;
-  address:{
-      street:string;
-      suite:string;
-      city:string;
-      zipcode:string;
-      geo:{
-        lat:string;
-        lng:string
-      }
-  };
-  phone:string;
-  website:string;
-  company:{
-    name:string;
-    catchPhrase:string;
-    bs:string;
-  }
-};
-type FormData = {
-  name:string;
-  username:string;
-  email:string;
-  address:{
-      street:string;
-      suite:string;
-      city:string;
-      zipcode:string;
-      geo:{
-        lat:string;
-        lng:string
-      }
-  };
-  phone:string;
-  website:string;
-  company:{
-    name:string;
-    catchPhrase:string;
-    bs:string;
-  }
+  time_date:string;
+  age:string;
+  title:string;
+  description:string;
+  description2?:string;
+  photo:string
 }
 
 export const Users = () => {
@@ -57,116 +19,79 @@ export const Users = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-   const [users, setUsers] = useState<User[]>([]);
-   const[edituser, setEditUser] = useState<User | null>(null);
+
    const [cityFilter, setCityFilter] = useState('all');
 
-  // Загрузка данных
-  /*useEffect(() => {
-    setLoading(true);
-    fetch('https://jsonplaceholder.typicode.com/users') 
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Ошибка загрузки');
-        }
-        return response.json();
-      })
-      .then((data: User[]) => {
-        setUsers(data);
-        setError(null);
-      })
-      .catch(err => {
-        setError(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);*/
-    
-  /*Первоначальное состояние модального окна - закрыто*/
-  const[ isModalOpen, setIsModalOpen] = useState(false);
-  /*register — связывает поля ввода с формой (аналог name и onChange в ручном управлении).
-    handleSubmit — обрабатывает отправку формы.
-    reset — сбрасывает значения формы.
-    errors — содержит ошибки валидации.*/ 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
-  const openModal = (userToEdit: User | null = null) => {setIsModalOpen(true);
-    if (userToEdit){
-      setEditUser(userToEdit);
-      reset(userToEdit);
-    } else{
-      setEditUser(null);
-      reset();
-    }};
-  const closeModal = () => {
-    setIsModalOpen(false);
-    reset(); // Сброс формы
-  };
- /*Отправка формы*/
-  const onSubmit = (data: FormData) => {
-    if (edituser){
-      setUsers(users.map(item =>item.id === edituser.id ? {...data, id: edituser.id}:
-      item));
-    } else{
-    const newUser: User = {
-      id: users.length > 0 ? Math.max(...users.map(u => u.id)) +1:1,
-      name: data.name,
-      username: data.username,
-      email: data.email,
-      address: {
-        street: data.address.street,
-        suite:data.address.suite,
-        city:data.address.city,
-        zipcode:data.address.zipcode,
-        geo:{
-        lat:data.address.geo.lat,
-        lng:data.address.geo.lng,
-      }},
-      phone:data.phone,
-      website:data.website,
-      company:{
-        name:data.company.name,
-        catchPhrase:'',
-        bs:""}
-  };
-    setUsers([...users, newUser]);
-};
-    closeModal();
-  };
-  
-  /*Удаление пользователей
-  window.confirm - показывает окно с надписью и кнопками 
-  120 строка - создание нового массива, без удаленного пользователя*/ 
-  const DeleteUsers = (id:number) =>{
-  if (window.confirm('Вы точно хотите удалить этого пользователя?')) {
-    setUsers(nUsers => nUsers.filter(user => user.id !== id));
+   const[premieres, setPremieres] = useState<Premiere[]>([
+      {
+        id:1,
+        time_date:'24 мая, 18:30',
+        age:'14 +',
+        title: 'Иваново детство',
+        description: 'Иван — это ребёнок, снедаемый страстью взрослого. Он потерял детство на войне и погиб, потому что жил как взрослый. Картина должна строиться на характере мальчика, но должны быть эпизоды, где выясняются его детские черты. В рассказе найдена точная деталь — игра в войну — что может быть страшнее! Здесь все очень глубоко, страшно и правдиво, здесь нет места приключенческой романтике...',
+        description2:'Иван видит сны. Ему снится та жизнь, которой он лишён, обыкновенное детство. В снах должно быть обыкновенное счастливое детство. В жизни — та страшная нелепость, которая происходит, когда ребёнок вынужден воевать.',
+        photo:'ivan.jpg'
+      },
+      {
+        id:2,
+        time_date:'20 мая, 18:30',
+        age:'16 +',
+        title: 'Лиса и виноград',
+        description: 'Богач и философ Ксанф вернулся из путешествия с группой купленных им рабов, один из которых - Эзоп - настолько безобразен и уродлив.',
+        description2:'',
+        photo:'/Rectangle 141.png'
+      },
+      {
+        id:3,
+        time_date:'20 мая, 18:30',
+        age:'16 +',
+        title: 'Лиса и виноград',
+        description: 'Богач и философ Ксанф вернулся из путешествия с группой купленных им рабов, один из которых - Эзоп - настолько безобразен и уродлив.',
+        description2:'',
+        photo:'/Rectangle 141.png'
+      },
+      {
+        id:4,
+        time_date:'24 мая, 18:30',
+        age:'14 +',
+        title: 'Иваново детство',
+        description: 'Иван — это ребёнок, снедаемый страстью взрослого. Он потерял детство на войне и погиб, потому что жил как взрослый. Картина должна строиться на характере мальчика, но должны быть эпизоды, где выясняются его детские черты. В рассказе найдена точная деталь — игра в войну — что может быть страшнее! Здесь все очень глубоко, страшно и правдиво, здесь нет места приключенческой романтике...',
+        description2:'Иван видит сны. Ему снится та жизнь, которой он лишён, обыкновенное детство. В снах должно быть обыкновенное счастливое детство. В жизни — та страшная нелепость, которая происходит, когда ребёнок вынужден воевать.',
+        photo:'ivan.jpg'
+      }
+    ]
+   );
+
+   const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Проверка наличия данных перед рендерингом
+  if (!premieres || premieres.length === 0) {
+    return <div>Загрузка премьер...</div>;
   }
-  };
-    /*Для поисковой строки - осуществляет поиск по ввсем столбцам таблицы*/ 
-    const Users = users.filter(user =>
-        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
 
-        user.address.street.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.address.suite.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.address.city.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.address.zipcode.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.address.geo.lat.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.address.geo.lng.toLowerCase().includes(searchTerm.toLowerCase())||
+   const nextPremiere = () =>{
+    setCurrentIndex((prevIndex) => 
+    prevIndex === premieres.length - 1 ? 0:prevIndex+1);
+   };
 
-        user.phone.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.website.toLowerCase().includes(searchTerm.toLowerCase())||
+   const prevPremiere = () =>{
+    setCurrentIndex((prevIndex) => 
+    prevIndex === premieres.length - 1 ? 0: prevIndex-1 );
+   };
 
-        user.company.name.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.company.catchPhrase.toLowerCase().includes(searchTerm.toLowerCase())||
-        user.company.bs.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+   const getCardPremieres = () =>{
+    const prev = currentIndex === 0 ? premieres.length-1 : currentIndex-1;
+    const next = currentIndex === premieres.length-1 ? 0 : currentIndex+1;
+    const nextNext = (currentIndex + 2) % premieres.length;
 
-    const searchCity = cityFilter === 'all' ? Users : Users.filter(user => user.address.city === cityFilter);
+    return [
+      premieres[prev],
+      premieres[currentIndex],
+      premieres[next],
+      premieres[nextNext]
+    ];
+   };
 
-    if (loading) return <div className='Loading'>Loading...</div>;
-  if (error) return <div className='Error' >Error: {error}</div>;
 
   /*Что мы видим в итоге*/ 
   return (
@@ -186,29 +111,70 @@ export const Users = () => {
     </div>
     <div className='main_con2'>
       <div className='description_con'>
-
-     
-      <div className='description_all'>
-      <div className='description'>
-        <p>Дата основания</p>
-        <p>2020-2021 год</p>
-        <p>Абсолютно для всех</p>
-      </div>
-      <div className='description_2'>
-        <p>1932 год</p>
-        <div className='w'>
-        <p>32 спектакля</p>
-        <p>0+</p>
+        <div className='description_all'>
+          <div className='description'>
+            {/* Первая колонка */}
+            <div className='column'>
+              <p className='q'>Дата основания</p>
+              <p className='e'>1932 год</p>
+            </div>
+            {/* Вторая колонка */}
+            <div className='column'>
+              <p className='q'>2020-2021 год</p>
+              <p className='e'>32 спектакля</p>
+            </div>
+            {/* Третья колонка */}
+            <div className='column'>
+              <p className='q'>Абсолютно для всех</p>
+              <p className='e'>0+</p>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-      
-      <div className='description_link'>
-        <button>Узнать подробнее</button>
-      </div>
-    </div>
+      <p className='description_button'>Узнать подробнее</p>
+        </div>
      </div>
-    </div>
+     <div className='main_con3'>
+      <div className='main_card'>
+        <h1 className='Premier_h1'>Ближайшие премьеры</h1>
+      
+        <div className='premier_con'>
+          {getCardPremieres().map((premiere, index) =>(
+            premiere &&(
+            <div key={premiere.id}
+            className={`premiere-card ${index === 1 ? 'active' : ''}`} >
+              <img src={premiere.photo} alt="" className='card_img'></img>
+              <div className='premier_date'>
+                <div className='card_date'>
+                <p className='c'>{premiere.time_date}</p>
+                </div>
+                <div className='card_age'>
+                <p className='d'>{premiere.age}</p></div>
+                </div>
+                <h3 className='card_title'>{premiere.title}</h3>
+                <p className='card_description'>{premiere.description}</p>
+              </div>
+            )
+          ))}
+          <div className='back_tofront'>
+              <img 
+                src='/Back.png' 
+                alt='' 
+                className='button_back' 
+                onClick={prevPremiere}
+              />
+              <img 
+                src='/Tofront.png' 
+                alt='' 
+                className='button_tofront' 
+                onClick={nextPremiere}
+              />
+            </div>
+        </div>
+    
+          </div>
+          </div>
+      </div>
+ 
   )
 };
 

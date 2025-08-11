@@ -1,5 +1,5 @@
 @import '@fontsource/inter';
-
+$font_text: "Inter";
 @mixin heading_1 {
   font-family:'Inter';
   font-weight: 700;
@@ -20,7 +20,6 @@
 @mixin description{
   font-family: 'Inter';
   font-weight: 700;
-  line-height: 100%;
   letter-spacing: 0.2px;
 }
 
@@ -128,50 +127,217 @@ body{
   padding: 0px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content:center;}
   
 
   .description_con{
     background-color: brown;
     display: flex;
-    gap: 783px;
+    gap: 450px;
     width: 1280px;
     height: 120px;
+    white-space: nowrap;
   
-    .description_all{
-    display: flex;
-    flex-direction: column;
-    margin-left:53px;
+    .description_all {
+    margin-left: 53px;
     background-color: coral;
-    justify-content: center;
-    align-items: left;
-    gap: 0; 
-    margin-top: 0;
-    height: auto;
+    width: 600px;
+
+  .description {
+    display: flex;
+    background-color: rgb(231, 219, 210);
+    justify-content: space-between; // Равномерное распределение колонок
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: nowrap;
+    width: 600px;
+    height: 120px;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 0; // Убирает промежуток между строками
+      margin-top: 30px;
+
+      .q, .e {
+        margin: 1px; // Убирает стандартные отступы
+        padding: 0;
+        line-height: 1.2; // Оптимальное межстрочное расстояние
+      }
+
+      .q {
+        font-size: 12px;
+        color: #818181;
+        @include description();
+      }
+
+      .e {
+        font-size: 24px;
+        color: #282828;
+         @include description();
+      }
+    }
+  }
+}
+.description_button{
+    margin-top: 47px;
+    width: 157px;
+    height: 21px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: $font_text;
+    text-decoration: underline; // Подчёркивание
+    text-underline-offset: 4px; // Отступ подчёркивания от текста
+    cursor: pointer;
+
+    &:hover{
+      color: #FA434B;
+    }
+}
+}
+.main_con3{
+  width: 100%;
+  height:633px;
+  background-color: darkcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main_card{
+    width: 1280px;
+    height: 633px;
+    background-color: #175AE4;
+  }
+  .premier_con {
+    display: flex;
+    justify-content: flex-start;
+    gap: 240px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden; 
+    background-color: rgb(211, 81, 81);
 
     
+    @media (max-width: 768px) {
+      gap: 15px;
     }
-    .description{
+  }
+
+  .Premier_h1{
+  @include description();
+  font-size: 36px;
+  margin-left:51px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  }
+
+  .premiere-card{
+    width: 335px;
+    height: 450px;
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    position: relative;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top:0 ;
+      left:0;
+      width: 335px;
+      height: 450px;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 30%,  
+        rgba(0, 0, 0, 0.1) 50% 
+      );
+    z-index: 1;
+    pointer-events: none; /* Чтобы не мешал кликам */
+    }
+    .card_img{
+      z-index: 0;
+      position: absolute;
+      margin-left: 0px;
+    }
+  }
+
+    .premier_date{
+      z-index: 2;
+      position: absolute;
       display: flex;
-      @include description();
-      gap: 90px;
-      flex-wrap: nowrap;
-      width: 600px;
-      font-size: 12px;
-      color: #818181;
+      gap: 20px;
+      color: #000;
+      color: #ffffff;
+      margin-left: 30px;
+      margin-bottom: 0px;
+      margin-top: 30px;
+
+      .card_date{
+        background-color: #FA434B;
+        width: 118px;
+        height: 29px;
+        text-align: center;
+        border-radius: 14px;
+        color: #ffffff;
+        font-size: 14px;
+
+        .c{
+          margin-top: 3px;
+        }
+
+      }
+      .card_age{
+        width: 58px;
+        height: 29px;
+        border-radius: 14px;
+        background-color:#EFEFEF;
+        color: #1E201F;
+        text-align: center;
+        font-size: 14px;
+
+        .d{
+          margin-top: 3px;
+        }
+
+
+      }
     }
-    .description_2{
-      display: flex;
-      @include description();
-      color: #282828;
-      font-size: 24px;
-      gap: 86px;
+    .card_title{
+      z-index: 2;
+      position: absolute;
+      color: #ffffff;
+      width: 170px;
+      height: 30px;
+      font-size: 20px;
+      margin-top: 341px;
+      margin-left: 30px;
+      word-wrap: break-word;
+      font-size: 'Inter';
+      font-weight: 500;
+      
     }
-    .w{
-      display: flex;
-      gap:19px;
+    .card_description{
+      z-index: 2;
+      position: absolute;
+      color: #ffffff;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;        // Максимум 3 строки
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 387px;
+      margin-left: 30px;
+      width: 280px;
+      font-size: 12px ;
+      line-height: 16px;
+      font-size: 'Inter';
+      font-weight: 400;
+      color: #C7C7C7;
     }
-  }  
 }
+
+
+
 
 

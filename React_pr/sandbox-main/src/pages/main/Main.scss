@@ -24,7 +24,7 @@ $font_text: "Inter";
 }
 
 @mixin main_con{
-  background-color: #175AE4;
+  background-color: #fafafa;
   width: 100%;
   height: 529px ;
   display: flex;
@@ -34,7 +34,7 @@ $font_text: "Inter";
 }
 
 @mixin main_photo{
-  background-color: #59f17f;
+  /*background-color: #59f17f;*/
   width: 1280px;
   height: 529px;
   position: relative;
@@ -103,7 +103,7 @@ $font_text: "Inter";
   }
 
 body{
-  background-color: #FFFFFF;
+  background-color: #fafafa;;
 }
 /*Кнопки навигации*/
 .navigate {
@@ -122,7 +122,8 @@ body{
 
 .main_con2{
   height: 120px ;
-  background-color: aquamarine;
+  /*background-color: aquamarine;*/
+  background-color: #fafafa;
   width: 100%;
   padding: 0px;
   display: flex;
@@ -131,7 +132,7 @@ body{
   
 
   .description_con{
-    background-color: brown;
+    background-color: #FBFBFB;
     display: flex;
     gap: 450px;
     width: 1280px;
@@ -140,12 +141,10 @@ body{
   
     .description_all {
     margin-left: 53px;
-    background-color: coral;
     width: 600px;
 
   .description {
     display: flex;
-    background-color: rgb(231, 219, 210);
     justify-content: space-between; // Равномерное распределение колонок
     align-items: flex-start;
     gap: 0;
@@ -197,17 +196,47 @@ body{
 }
 .main_con3{
   width: 100%;
-  height:633px;
-  background-color: darkcyan;
+  height:670px;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   .main_card{
     width: 1280px;
-    height: 633px;
-    background-color: #175AE4;
+    height: 670px;
+    background-color: #ffffff;
+
+    .back_front{
+      margin-top: 20px;
+      cursor: pointer;
+      display: flex;
+      margin-left: 1160px;
+      width: 100px;
+
+      .button{
+        width: 45px;
+        height: 45px;
+        border-radius: 100px;
+
+         &:hover{
+          background-color:#FA434B ;
+          border-radius: 100px;
+        }
+          .button_back,
+          .button_tofront {
+            width: 13px; // Уменьшаем размер иконки, чтобы она помещалась в круг
+            height: 13px;
+            transition: opacity 0.3s;
+            margin-top: 15px;
+            margin-left: 15px;
+
+            &:hover {
+              opacity: 0.8;
+            }
+      }
+    }
   }
+}
   .premier_con {
     display: flex;
     justify-content: flex-start;
@@ -218,7 +247,7 @@ body{
     padding: 0 10px;
     box-sizing: border-box;
     overflow: hidden; 
-    background-color: rgb(211, 81, 81);
+    
 
     
     @media (max-width: 768px) {
@@ -316,6 +345,11 @@ body{
       word-wrap: break-word;
       font-size: 'Inter';
       font-weight: 500;
+      cursor: pointer;
+
+      &:hover{
+        color: #FA434B;
+      }
       
     }
     .card_description{
@@ -323,7 +357,8 @@ body{
       position: absolute;
       color: #ffffff;
       display: -webkit-box;
-      -webkit-line-clamp: 3;        // Максимум 3 строки
+      -webkit-line-clamp: 3; 
+       line-clamp: 3;       // Максимум 3 строки
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin-top: 387px;
@@ -334,8 +369,179 @@ body{
       font-size: 'Inter';
       font-weight: 400;
       color: #C7C7C7;
+      
     }
 }
+
+.main_con4{
+  width: 100%;
+  height:105px;
+  background-color: #FA434B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .buttons_4_con{
+    
+    width: 1280px;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .buttons_4{
+      width: 810px;
+      height:45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap:10px;
+
+      .buttons_vid1,.buttons_vid2,.buttons_vid3,.buttons_vid4{
+        border-radius: 20px;
+        height: 45px;
+        border: 2px solid #ffffff ;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 400;
+        font-family: 'Inter';
+        background-color:#FA434B ;
+        color: #FFFFFF;
+
+        &:hover{
+          color: #FA434B;
+          background-color: #FFFFFF;
+        }
+
+      }
+      .buttons_vid1{
+        width: 211px;
+      }
+      .buttons_vid2{
+        width: 171px;
+      }
+      .buttons_vid3{
+        width: 175px;
+      }
+      .buttons_vid4{
+        width: 193px;
+      }
+    }
+  }
+   
+}
+
+.main_con5{
+  width: 100%;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .news_con{
+    background-color: #ffffff;
+    height: 900px;
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+
+    .text_more_news{
+      display: flex;
+      gap:688px;
+    }
+
+    .news_text{
+      margin-top: 50px;
+      margin-left: 58px;
+      font-size: 36px;
+      font-family: 'Inter';
+      letter-spacing: 0.2px;
+      font-weight: 700;
+      color: #282828;
+    }
+
+    .more_news{
+      font-size: 18px;
+      font-family: 'Inter';
+      letter-spacing: 0;
+      color:#282828 ;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 60px;
+      margin-left: 58px;
+
+      &:hover{
+        color: #FA434B;
+      }
+    }
+
+    .news_news{
+      width: 1180px;
+      margin-left: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap:20px;
+
+      .card_news{
+        width:580px;
+        height: auto;
+
+        .picture_news{
+          background-color: #C7C7C7;
+          width: 580px ;
+          height: 150px;
+          position: relative;
+          overflow: hidden;
+
+          .news_img{
+            width: auto ;
+            height: 200%;
+            position: absolute;
+            object-fit: cover;
+            min-width: 100%;
+          }
+        }
+        .title_date{
+          display: flex;
+          margin-top: 20px;
+          gap:90px;
+
+          .title_news{
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 30px;
+            color:#1E201F;
+            white-space: normal;
+            cursor: pointer;
+            
+            &:hover{
+              color: #FA434B;
+            }
+          }
+          .date_news{
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 30px;
+            color:#C4C4C4;
+          }
+        }
+        .description_news{
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 16px;
+          color: #86837F;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+}
+
+
 
 
 

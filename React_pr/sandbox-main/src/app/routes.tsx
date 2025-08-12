@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Navigate, Outlet, Route, Routes, useSearchParams} from 'react-router-dom';
 import {Layout} from "../components/layout";
-import {Users} from "../pages/users";
+import { Main } from "../pages/main";
 import {UserCard} from "../pages/user-card";
 import {News} from "../pages/news";
 
@@ -20,7 +20,7 @@ export const AppRoutes = () => {
           
         }
       >
-        <Route path="main" element={<Users />} />
+        <Route path="main" element={<Main />} />
         <Route path="main/:id" element={<UserCard />} />
         <Route path="news" element={<News />} />
         <Route path="poster" element={<Poster />} />

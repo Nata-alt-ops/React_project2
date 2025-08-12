@@ -5,6 +5,7 @@ import { Main } from "../pages/main";
 import {UserCard} from "../pages/user-card";
 import {News} from "../pages/news";
 import { Poster } from '../pages/poster/Poster';
+import { About } from '../pages/about/About';
 
 export const AppRoutes = () => {
   return (
@@ -23,7 +24,9 @@ export const AppRoutes = () => {
         <Route path="news" element={<News />} />
         <Route path="poster" element={<Poster />} />
         <Route path="about_theater" element={<>О нас</>} />
+        <Route path='/about' element={<About />} />
         <Route index element={<Navigate to="/main" />} />
+        
 
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

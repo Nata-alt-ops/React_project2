@@ -238,7 +238,7 @@ export const Main = () => {
             </div>
           </div>
         </div>
-      <p className='description_button'>Узнать подробнее</p>
+      <p className='description_button' onClick={() => navigate('/about')}>Узнать подробнее</p>
         </div>
      </div>
      <div className='main_con3'>

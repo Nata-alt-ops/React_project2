@@ -22,7 +22,7 @@ type News = {
   description_news:string
 }
 
-export const Users = () => {
+export const Main = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);

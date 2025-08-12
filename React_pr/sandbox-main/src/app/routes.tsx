@@ -4,8 +4,6 @@ import {Layout} from "../components/layout";
 import { Main } from "../pages/main";
 import {UserCard} from "../pages/user-card";
 import {News} from "../pages/news";
-
-
 import { Poster } from '../pages/poster/Poster';
 
 export const AppRoutes = () => {

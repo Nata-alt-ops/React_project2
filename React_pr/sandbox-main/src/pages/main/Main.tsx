@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
 import { data, useNavigate } from 'react-router-dom';
+import { news } from '../../helper/HelpNews';
 import './Main.scss';
 
 
@@ -265,8 +266,8 @@ export const Main = () => {
                 <div className='card_age'>
                 <p className='d'>{premiere.age}</p></div>
                 </div>
-                <h3 className='card_title' onClick={() => navigate(`/news/${premiere.id}`)}
-                  style={{ cursor: 'pointer' }}>{premiere.title}</h3>
+                <h3 className='card_title' 
+                  >{premiere.title}</h3>
                 <p className='card_description'>{premiere.description}</p>
               </div>
               
@@ -318,7 +319,7 @@ export const Main = () => {
                     <img src={item.picture_news} alt='' className='news_img'></img>
                     </div>
                     <div className='title_date'>
-                      <div className='title_news'>{item.title_news}</div>
+                      <div className='title_news' onClick={() => navigate(`/news/${item.id}`)}>{item.title_news}</div>
                       <div className='date_news'>{item.date_news}</div>
                     </div>
                     <div className='description_news'>{item.description_news}</div>

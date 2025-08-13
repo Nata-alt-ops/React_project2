@@ -25,7 +25,7 @@ export const About = () => {
     </div>
   );
 
-  return (
+    return (
     <div className='p'>
       <div className='about_con'>
         <div className='about_info_button'>
@@ -75,4 +75,4 @@ export const About = () => {
       </div>
     </div>
   );
-};
+}

@@ -28,6 +28,8 @@ export const AppRoutes = () => {
         <Route path='/about' element={<About />} />
         <Route path='/event' element={<Event />} />
         <Route path="/event/:id" element={<Event />} />
+        <Route path="/news" element={<Event />} />
+         <Route path="/news/:id" element={<Event />} />
         <Route index element={<Navigate to="/main" />} />
         
 

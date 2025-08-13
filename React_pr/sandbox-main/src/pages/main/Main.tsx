@@ -4,7 +4,9 @@ import { useForm } from 'react-hook-form';
 import { data, useNavigate } from 'react-router-dom';
 import './Main.scss';
 
-type Premiere = {
+
+
+export type Premiere = {
   id:number;
   time_date:string;
   age:string;
@@ -258,7 +260,7 @@ export const Main = () => {
                 <div className='card_age'>
                 <p className='d'>{premiere.age}</p></div>
                 </div>
-                <h3 className='card_title'>{premiere.title}</h3>
+                <h3 className='card_title' onClick={() => navigate(`/event/${premiere.id}`)}>{premiere.title}</h3>
                 <p className='card_description'>{premiere.description}</p>
               </div>
               
@@ -323,5 +325,7 @@ export const Main = () => {
       </div>
  
   )
+  
 };
+
 

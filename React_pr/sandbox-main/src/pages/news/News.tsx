@@ -9,18 +9,15 @@ import './News.scss';
 export const News = () =>{
 
     const navigate = useNavigate();
-    const { id } = useParams();
-    const newsItem = news.find(item => item.id === Number(id));
-
-    if (!newsItem) {
-        return <div>Новость не найдена</div>;
-    }
+    
     
 
 
   return (
    <div className='news_body'>
      <div className='news_news'>
+        {news.map((newsItem) => (
+          <div key={newsItem.id} className='news_item' onClick={() => navigate(`/news/${newsItem.id}`)}>
         <div className='news_photo'>
             <img src={newsItem.photo} alt={newsItem.title_news}></img>
         </div>
@@ -28,7 +25,7 @@ export const News = () =>{
             <div className='news_title'>{newsItem.title_news}</div>
             <div className='news_date'>{newsItem.data_news}</div>
         </div>
-        <div className='news_description'>{newsItem.description_news}</div>
+        <div className='news_description'>{newsItem.description_news}</div></div> ))}
         </div>
     </div>
   );

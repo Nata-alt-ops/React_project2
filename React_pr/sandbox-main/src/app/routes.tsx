@@ -26,7 +26,6 @@ export const AppRoutes = () => {
         <Route path="main/:id" element={<UserCard />} />
         <Route path="news" element={<News />} />
         <Route path="/news" element={<News />} />
-        <Route path="/news_all/:id" element={<News />} />
         <Route path="poster" element={<Poster />} />
         <Route path="about_theater" element={<>О нас </>} />
         <Route path='/about' element={<About />} />

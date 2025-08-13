@@ -1,7 +1,7 @@
 @import '@fontsource/inter';
 
 .about_con{
-    background-color: #3da8ff;
+    background-color: #FBFBFB;
     width: 100%;
     height: auto;
     z-index: 1;
@@ -80,26 +80,126 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: brown;
+        background-color: #ffffff;
 
         .info_con{
-            background-color: darkorange;
+            background-color: #ffffff;
             width: 1280px;
             height: 648px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             position: relative;
             z-index: 0;
+            gap: 10px;
+
+            .button_info{
+                display: flex;
+                flex-direction: column;
+                width: 680px;
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18px;
+                color: #282828;
+                margin-top: 90px;
+                gap:20px;
+
+                .history_tours_text{
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 18px;
+                    letter-spacing: 0.2px;
+                }
+
+               .tab-buttons {
+                display: flex;
+                gap: 130px;
+                margin-left: 0px;
+                position: relative;
+                padding-bottom: 10px; // Для линии снизу
+                justify-content: center;
+
+                // Серая линия (фон)
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: #E0E0E0;
+                    z-index: 1;
+                    margin-right: 10px;
+                }
+
+                // Красная линия (активная часть)
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 2px;
+                    background-color: #FA434B;
+                    z-index: 2;
+                    transition: transform 0.3s ease;
+                }
+
+                // Позиция красной линии
+                &.history-active::after {
+                    transform: translateX(0);
+                }
+                
+                &.tours-active::after {
+                    transform: translateX(100%);
+                }
+
+                button {
+                    border: none;
+                    font-size: 14px;
+                    font-family: 'Inter';
+                    line-height: 18px;
+                    letter-spacing: 0.2px;
+                    color: #818181;
+                    background: none;
+                    cursor: pointer;
+                    padding: 0;
+                    position: relative;
+
+                    &.active {
+                    color: #282828;
+                    font-weight: 600;
+                    }
+
+                    &:hover {
+                    color: #282828;
+                    }
+                }
+}
+
+            }
+
+            .photo_city{
+            width: 560px;
+            height: 560px;
+            background-color: #E7E7E8; 
+            position: absolute;
+            top: 50px;
+            right: 0;  
+            z-index: 1;
+            overflow: hidden;
+
+            .city_img{
+                width: 540px;
+                height: 540px;
+                margin-top: 10px;
+                margin-left: 10px;
+                object-fit: cover;
+            }
+            }
 
            
         }
-        .photo_city{
-            width: 560px;
-            height: 560px;
-            background-color: #E7E7E8; // Серый фон вместо color
-            position: absolute;
-            top: 50px; // Позиционируем от верхнего края
-            right: 0;  // Прижимаем к правому краю
-            z-index: 1;
-            }
+        
      }

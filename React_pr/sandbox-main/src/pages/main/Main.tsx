@@ -265,7 +265,8 @@ export const Main = () => {
                 <div className='card_age'>
                 <p className='d'>{premiere.age}</p></div>
                 </div>
-                <h3 className='card_title' onClick={() => navigate(`/news/${premiere.id}`)}>{premiere.title}</h3>
+                <h3 className='card_title' onClick={() => navigate(`/news/${premiere.id}`)}
+                  style={{ cursor: 'pointer' }}>{premiere.title}</h3>
                 <p className='card_description'>{premiere.description}</p>
               </div>
               

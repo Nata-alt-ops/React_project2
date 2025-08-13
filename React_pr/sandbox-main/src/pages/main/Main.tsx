@@ -310,7 +310,7 @@ export const Main = () => {
             <div className='news_con'>
               <div className='text_more_news'>
               <h1 className='news_text'>Новости театра</h1>
-              <p className='more_news'>Показать все ⟶ </p>
+              <p className='more_news' onClick={() => navigate('/news_all')}>Показать все ⟶ </p>
               </div>
               <div className='news_news'>
                 {news.slice(0,4).map(item =>(

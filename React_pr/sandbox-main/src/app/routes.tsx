@@ -25,12 +25,14 @@ export const AppRoutes = () => {
         <Route path="main" element={<Main />} />
         <Route path="main/:id" element={<UserCard />} />
         <Route path="news" element={<News />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/news_all/:id" element={<News />} />
         <Route path="poster" element={<Poster />} />
         <Route path="about_theater" element={<>О нас </>} />
         <Route path='/about' element={<About />} />
         <Route path='/event' element={<Event />} />
         <Route path="/event/:id" element={<Event />} />
-         <Route path="/news/:id" element={<ShowNews />} />
+        <Route path="/news/:id" element={<ShowNews />} />
         <Route index element={<Navigate to="/main" />} />
         
 

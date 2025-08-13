@@ -1,20 +1,89 @@
-.con{
+@import '@fontsource/inter';
+.con1{
    width: 100%;
-   height: 290px;
-   background-color: burlywood;
-   display: flex;
+   height: 450px;
+   background-color: #ffffff;
+   display: flex ;
    justify-content: center;
-   align-items: center; 
+   position: relative;
 
    .con_photo{
     width: 1280px;
-    height: 290px;
-    background-color: coral;
+    height: 450px;
+    background-color: #ffffff;
+    position: absolute;
+    overflow: hidden;
 
     .photo_news{
         width: 1280px;
-        height: 290px;
+        height: 707px;
         object-fit: cover;
+        position: absolute;
+        }
     }
-   }
+
+   
+}
+.con2{
+        margin-top: 12px;
+        background-color: #FBFBFB;
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        width: 100%;
+        height: 120px;
+
+        .con_date_title{
+            background-color: #FBFBFB;
+            width: 1280px;
+            height: 120px;
+
+            .data_text{
+                font-family: "Inter";
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 30px;
+                letter-spacing: 0;
+                color: #C4C4C4;
+                margin-bottom: 0;
+            }
+
+            .title_text{
+                font-family: "Inter";
+                font-weight: 700;
+                font-size: 36px;
+                letter-spacing: 0.2px;
+                color: #282828;
+                margin-top: 0px;
+            }
+
+        }
+
+    }
+.con3{
+    margin-top: 12px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    width: 100%;
+    height: 282px;
+
+    .con_description{
+        background-color: #ffffff;
+        width: 1280px;
+        height: auto;
+
+        .description_text{
+            font-family: "Inter";
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            line-height: 18px;
+            color: #282828;
+            margin-top: 50px;
+            
+
+        }
+    }
 }

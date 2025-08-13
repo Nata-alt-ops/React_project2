@@ -7,6 +7,8 @@ import {News} from "../pages/news";
 import { Poster } from '../pages/poster/Poster';
 import { About } from '../pages/about/About';
 import {Event} from '../pages/event/Event';
+import { ShowNews } from '../pages/shownews';
+
 
 export const AppRoutes = () => {
   return (
@@ -28,8 +30,8 @@ export const AppRoutes = () => {
         <Route path='/about' element={<About />} />
         <Route path='/event' element={<Event />} />
         <Route path="/event/:id" element={<Event />} />
-        <Route path="/news" element={<Event />} />
-         <Route path="/news/:id" element={<Event />} />
+        <Route path="/news" element={<News />} />
+         <Route path="/news/:id" element={<ShowNews />} />
         <Route index element={<Navigate to="/main" />} />
         
 

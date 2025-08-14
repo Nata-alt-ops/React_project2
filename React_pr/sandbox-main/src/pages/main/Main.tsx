@@ -313,6 +313,16 @@ export const Main = () => {
               <p className='more_news' onClick={() => navigate('/news')}>Показать все ⟶ </p>
               </div>
               <div className='news_news'>
+                 {news.map((newsItem) => (
+                        <div key={newsItem.id} className='card_news' >
+                      <div className='picture_news'>
+                          <img src={newsItem.picture_news} alt={newsItem.title_news} className='news_img'></img>
+                      </div>
+                      <div className='title_date'>
+                          <div className='title_news' onClick={() => navigate(`/news/${newsItem.id}`)}>{newsItem.title_news}</div>
+                          <div className='date_news'>{newsItem.date_news}</div>
+                      </div>
+                      <div className='description_news'>{newsItem.description_news}</div></div> ))}
                
 
                 

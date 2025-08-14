@@ -22,7 +22,7 @@ export const premiere: CardPremiere[] = [
       },
       {
         id:2,
-        photo:'/Rectangle 141.png',
+        photo:'/Rectangle 141.jpg',
         title_premiere: 'Лиса и виноград',
         data_news:'15 апреля 2021',
         age:'16 +',
@@ -32,7 +32,7 @@ export const premiere: CardPremiere[] = [
       },
       {
         id:3,
-        photo:'/Rectangle 141.png',
+        photo:'/Rectangle 141.jpg',
         title_premiere: 'Лиса и виноград',
         data_news:'15 апреля 2021',
         age:'16 +',

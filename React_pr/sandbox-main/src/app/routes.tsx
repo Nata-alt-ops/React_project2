@@ -10,6 +10,7 @@ import {Event} from '../pages/event/Event';
 import { ShowNews } from '../pages/shownews';
 
 
+
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -29,7 +30,6 @@ export const AppRoutes = () => {
         <Route path="poster" element={<Poster />} />
         <Route path="about_theater" element={<>О нас </>} />
         <Route path='/about' element={<About />} />
-        <Route path='/event' element={<Event />} />
         <Route path="/event/:id" element={<Event />} />
         <Route path="/news/:id" element={<ShowNews />} />
         <Route index element={<Navigate to="/main" />} />

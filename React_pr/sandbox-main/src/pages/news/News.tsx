@@ -27,7 +27,8 @@ export const News = () =>{
             <div className='news_title' onClick={() => navigate(`/news/${newsItem.id}`)}>{newsItem.title_news}</div>
             <div className='news_date'>{newsItem.data_news}</div>
         </div>
-        <div className='news_description'>{newsItem.description_news}</div></div> ))}
+        <div className='news_description'>{newsItem.description_news}</div>
+        </div> ))}
         </div>
         </div>
     </div>

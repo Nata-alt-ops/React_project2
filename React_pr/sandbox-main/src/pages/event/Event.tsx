@@ -2,9 +2,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { premiere} from '../../helper/HelpPremiere'; 
+import { useState } from 'react';
+import {}
 import './Event.scss';
 export const Event = () => {
+  const [activeTab, setActiveTab] = useState<'About_the_performance' | 'Group'>('About_the_performance');
   const { id } = useParams<{ id: string }>();
+
+ 
   
   // Находим премьеру по ID
   const premiereInfo = premiere.find((item) => item.id === Number(id));
@@ -43,41 +48,48 @@ export const Event = () => {
             </div>
 
             <div className='event_button'>
-              <button>Купить билет</button>
+              <button onClick={() => navigate(`/event/${premiere.id}`)}>Купить билет</button>
             </div>
           </div>
         </div>
-         {/*<div className='button_info'>
-            <div className={`tab-buttons ${activeTab === 'history' ? 'history-active' : 'tours-active'}`}>
+
+        <div className='info_change'>
+          <div className='button_infor'>
+            <div className={`tab_buttons ${activeTab === 'About_the_performance' ? 'About_the_performance_active' : 'Group_active'}`}>
               <button 
-                className={activeTab === 'history' ? 'active' : ''}
-                onClick={() => setActiveTab('history')}
+                className={activeTab === 'About_the_performance' ? 'active' : ''}
+                onClick={() => setActiveTab('About_the_performance')}
               >
-                История города
+                О спектакле
               </button>
               <button 
-                className={activeTab === 'tours' ? 'active' : ''}
-                onClick={() => setActiveTab('tours')}
+                className={activeTab === 'Group' ? 'active' : ''}
+                onClick={() => setActiveTab('Group')}
               >
-                Экскурсии по городу
+                Коллектив
               </button>
             </div>
             
-            {activeTab === 'history' ? (
-              <div className="history_tours_text">
-                <p>Иннополис находится в Верхнеуслонском районе Республики Татарстан в месте слияния двух рек — Волги и Свияги. Это первый российский город для ИТ-специалистов.</p>
-                <p>Концепция &laquo;Умный город&raquo; помогает Иннополису организовать инфраструктуру, бизнес, образование, городские услуги и быт жителей Иннополиса так, чтобы жить в ИТ-городе было комфортно. Премьер-министр Российской Федерации Дмитрий Медведев вместе с Президентом Республики Татарстан Рустамом Миннихановым и министром связи и массовых коммуникаций РФ Николаем Никифоровым заложили капсулу с посланием будущим жителям на стартовой площадке строительства города. Через три года, 9 июня 2015 года, был дан официальный старт жизни нового города.</p>
-                <p>Разработкой мастер-плана Иннополиса руководил Лиу Тай Кер, генеральный планировщик департамента по перепланировке Сингапура — эталона для большинства современных городов мира.</p>
-                <p>Премьер-министр России Дмитрий Медведев, министр связи и массовых коммуникаций РФ Николай Никифоров, врио президента Татарстана Рустам Минниханов нажали символическую кнопку запуска нового города.</p>
-                <p>В первый день рождения города Иннополис прошли конференции &laquo;Цифровая индустрия промышленной России&raquo; и РИФ.Иннополис, которые собрали более 5 тысяч гостей.</p>
-                <p>В Иннополисе ежедневно находятся более 3800 человек. Зарегистрировано 367 компаний, из них 126 — резиденты и партнеры ОЭЗ &laquo;Иннополис&raquo;. Сдано в аренду более 88 тысяч квадратных метров недвижимости. Запущена вся базовая инфраструктура: 22 жилых дома, детский сад, школа, ИТ-лицей, медицинский и спортивный центры, работают отделения почты и банков, 3 супермаркета, пиццерия, кафе, бар, автомойка, аптеки, книжный и цветочный магазины, хобби-центр и другие сервисные компании.</p>
+            {activeTab === 'About_the_performance' ? (
+            <div className="text_change">
+              <p className="premiere-date">Премьера состоялась {premiereInfo.data_news} года.</p>
+              <p className="description-short">{premiereInfo.description_premiere}</p>
+                <div className="description-long">
+                  {premiereInfo.description2.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             ) : (
-              <div className="history_tours_text">
-                <p>Экскурсии по Иннополису включают посещение университета, ИТ-парка, жилых кварталов и центра города. Вы сможете увидеть, как живут и работают ИТ-специалисты будущего.</p>
+              <div className="text_change">
+                <p>Очень дружный коллектив</p>
               </div>
             )}
-          </div>*/}
+          </div>
+
+
+        </div>
+        
       
     
     </div>

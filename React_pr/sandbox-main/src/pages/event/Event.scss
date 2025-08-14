@@ -47,13 +47,14 @@
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
+     margin-bottom: 0;
 
     .event_info{
         width: 1390px;
         height: 120px;
         background-color: darkmagenta;
         display: flex;
-        gap:309px;
+        gap:209px;
 
         .info{
             display: flex;
@@ -148,5 +149,113 @@
 }
     
 }}
+
+.info_change{
+    background-color: darkslateblue;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 0; 
+     
+
+    .button_infor{
+        background-color: darksalmon;
+        width: 1390px;
+        height: 622px;
+
+        .tab_buttons{
+            background-color: chartreuse;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            display: flex;
+            justify-content: center;
+            gap:653px;
+
+            // Серая линия (фон)
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 283px;
+                    left: 304px;
+                    width: 68%;
+                    height: 2px;
+                    background-color: #E0E0E0;
+                    z-index: 1;
+                    margin-right: 16px;
+                }
+
+                // Красная линия (активная часть)
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 283px;
+                    left: 304px;
+                    width: 645px;
+                    height: 2px;
+                    background-color: #FA434B;
+                    z-index: 2;
+                    transition: transform 0.3s ease;
+                }
+
+                // Позиция красной линии
+                &.About_the_performance_active::after {
+                    transform: translateX(0);
+                }
+                
+                &.Group_active::after {
+                    transform: translateX(100%);
+                }
+
+            button{
+                font-family: 'Inter';
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.2px;
+                color: #282828;
+                border: none;
+                background: none;
+                margin-bottom: 10px;
+                cursor: pointer;
+
+                
+            }
+
+        }
+
+        .text_change{
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.2px;
+            color: #282828;
+            margin-top: 25px;
+            margin-left: 50px;
+            margin-right: 50px;
+
+            
+                p {
+                    margin-bottom: 1em;
+                    line-height: 1.6;
+                    
+                    &:last-child {
+                    margin-bottom: 0;
+                    }
+                }
+}
+        }
+
+
+        
+        
+
+    }
+
+
+
+    
 
   

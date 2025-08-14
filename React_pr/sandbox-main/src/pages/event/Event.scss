@@ -15,23 +15,28 @@
 
   .con_event{
     background-color: chocolate;
-    width: 1390px;
-    height:400px;
+    width: 100%;
+    max-width: 1390px;
+    height: 400px; // Фиксированная высота контейнера
     overflow: hidden;
+    position: relative; // Добавляем relative для ограничения absolute-элементов
 
 
     .event_photo{
         background-color: rgb(98, 80, 255);
-        width: 1390px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
         position: relative;
         overflow: hidden;
 
        .event_img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit:fill;
         object-position: center bottom; // Фокус на нижней части
+        position: absolute;
+            top: 0;
+            left: 0;
         }
 
     }

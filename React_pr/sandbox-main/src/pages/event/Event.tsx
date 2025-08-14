@@ -3,27 +3,47 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { premiere} from '../../helper/HelpPremiere'; 
 import { useState } from 'react';
-import {}
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import './Event.scss';
 export const Event = () => {
   const [activeTab, setActiveTab] = useState<'About_the_performance' | 'Group'>('About_the_performance');
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
- 
-  
-  // Находим премьеру по ID
-  const premiereInfo = premiere.find((item) => item.id === Number(id));
+  // Добавьте в начало компонента
+const [imageStyle, setImageStyle] = useState({});
+// Находим премьеру по ID
+const premiereInfo = premiere.find((item) => item.id === Number(id));
 
-  if (!premiereInfo) {
-    return <div className="event-page">Премьера не найдена</div>;
+
+useEffect(() => {
+  if (premiereInfo?.photo) {
+    const img = new Image();
+    img.src = premiereInfo.photo;
+    img.onload = () => {
+      // Если изображение вертикальное
+      if (img.height > img.width) {
+        setImageStyle({ objectPosition: 'center top' });
+      } else {
+        setImageStyle({ objectPosition: 'center center' });
+      }
+    };
   }
+}, [premiereInfo]);
 
+
+
+
+if (!premiereInfo) {
+  return <div className="event-page">Премьера не найдена</div>;
+}
   return (
     <div className="event-page">
       <div className='con'>
         <div className='con_event'>
           <div className='event_photo'>
-            <img src={premiereInfo?.photo} alt={premiereInfo?.title_premiere} className='event_img' />
+            <img src={premiereInfo?.photo} alt={premiereInfo?.title_premiere} className='event_img'  style={imageStyle} />
           </div>
         </div>
       </div>
@@ -48,7 +68,7 @@ export const Event = () => {
             </div>
 
             <div className='event_button'>
-              <button onClick={() => navigate(`/event/${premiere.id}`)}>Купить билет</button>
+              <button onClick={() => navigate(`/buy_ticket/${premiereInfo.id}`)}>Купить билет</button>
             </div>
           </div>
         </div>

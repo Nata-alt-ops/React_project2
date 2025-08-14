@@ -8,6 +8,7 @@ import { Poster } from '../pages/poster/Poster';
 import { About } from '../pages/about/About';
 import {Event} from '../pages/event/Event';
 import { ShowNews } from '../pages/shownews';
+import { ByuTicket } from '../pages/buy_ticket';
 
 
 
@@ -32,6 +33,7 @@ export const AppRoutes = () => {
         <Route path='/about' element={<About />} />
         <Route path="/event/:id" element={<Event />} />
         <Route path="/news/:id" element={<ShowNews />} />
+        <Route path="/buy_ticket/:id" element={<ByuTicket />} />
         <Route index element={<Navigate to="/main" />} />
         
 

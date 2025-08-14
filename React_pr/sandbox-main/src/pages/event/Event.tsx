@@ -17,24 +17,6 @@ const [imageStyle, setImageStyle] = useState({});
 const premiereInfo = premiere.find((item) => item.id === Number(id));
 
 
-useEffect(() => {
-  if (premiereInfo?.photo) {
-    const img = new Image();
-    img.src = premiereInfo.photo;
-    img.onload = () => {
-      // Если изображение вертикальное
-      if (img.height > img.width) {
-        setImageStyle({ objectPosition: 'center top' });
-      } else {
-        setImageStyle({ objectPosition: 'center center' });
-      }
-    };
-  }
-}, [premiereInfo]);
-
-
-
-
 if (!premiereInfo) {
   return <div className="event-page">Премьера не найдена</div>;
 }

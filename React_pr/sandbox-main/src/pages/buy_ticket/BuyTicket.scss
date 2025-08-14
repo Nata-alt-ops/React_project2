@@ -1,0 +1,157 @@
+.con_ticket{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+
+  .con_buy_ticket{
+    width: 100%;
+    max-width: 1390px;
+    height: 400px; // Фиксированная высота контейнера
+    overflow: hidden;
+    position: relative; // Добавляем relative для ограничения absolute-элементов
+
+
+    .buy_ticket_photo{
+
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+       .buy_ticket_img {
+        width: 100%;
+        height: 100%;
+        object-fit:fill;
+        object-position: center bottom; // Фокус на нижней части
+        position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    }
+}}
+
+.buy_ticket{
+    background-color: green;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+
+    .item{
+        background-color: deeppink;
+        width: 1390px;
+        height: 120px;
+        display: flex;
+        gap: 754px;
+
+        h1{
+        font-size: 36px;
+        font-family: 'Inter';
+        letter-spacing: 0.2px;
+        color:#282828;
+        margin-top: 35px;
+        margin-left: 50px;
+        }
+
+        .price{
+            width: 302px;
+            height: 120px;
+            background-color:#FA434B;
+            color: #ffffff;
+            font-family: 'Inter';
+            font-weight: 700;
+            font-size: 36px;
+            letter-spacing: 0.2;
+            text-align: center;
+
+            .price_text{
+                color: #ffffff;
+                font-family: 'Inter';
+                font-weight: 700;
+                font-size: 36px;
+                letter-spacing: 0.2;
+                text-align: center;
+                margin-top: 35px;
+            }
+
+        }
+
+        
+        
+    }
+}
+
+.con_ticket2{
+    background-color: darkkhaki;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    .ticket_description{
+        background-color: darkgreen;
+        width: 1390px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+        .description_button{
+            background-color: chocolate;
+            width: 1038px;
+            margin-left: 50px;
+
+            .choose_date{
+                width: 519px;
+                height: auto;
+                background-color: gold;
+
+                p{
+                    font-family: 'Inter';
+                    font-weight: 500;
+                    font-size: 18px;
+                    letter-spacing: 0.2px;
+                    color: #282828;
+                    margin-top: 50px;
+                    margin-bottom: 20px;
+
+                }
+
+                .choose_button{
+                    display: flex;
+                    gap: 20px;
+                    width: 519px;
+                    height:auto;
+                    background-color: gold;
+                     flex-wrap: wrap;
+
+                    .date-btn{
+                       width: 157px;
+                       height: 45px;
+                       border-radius: 10px;
+                       background-color: #ffffff;
+                       border: 2px solid #FA434B;
+                       text-align: center; 
+
+                        &:hover {
+                border-color: #f33737;
+            }
+            
+            &.active {
+                background: #f33737;
+                color: white;
+                border-color: #f33737;
+            }
+                    }
+
+
+
+                }
+            }
+        }
+    }
+
+
+}

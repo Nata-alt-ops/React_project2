@@ -218,7 +218,7 @@ export const Main = () => {
     <div className='site_con'>
     <div className='main_con'>
       <div className='main_photo'>
-      <img src='/theatre.jpg' alt='' className='photo_theatre'></img>
+      <img src='/d86f59407d1c4f19b504b079f67d9a0522863cb1.jpg' alt='' className='photo_theatre'></img>
       {/*<h1 className='text_h1'>Казанский театр юного зрителя</h1>*/}
       <div className='text'>
         <h1 className='text_h1'>Казанский театр юного зрителя</h1>

@@ -1,5 +1,16 @@
 @import '@fontsource/inter';
-$font_text: "Inter";
+$font_main: "Inter";
+$color_main:#ffffff;
+$color_main2:#282828;
+$color_main3:#818181;
+$color_main4:#FA434B;
+$color_main5:#EFEFEF;
+$color_main6:#1E201F;
+$color_main7:#C7C7C7;
+$color_main8:#86837F;
+$color_main9:#C4C4C4;
+
+
 @mixin heading_1 {
   font-family:'Inter';
   font-weight: 700;
@@ -9,13 +20,65 @@ $font_text: "Inter";
   color: #ffffff;
   position: absolute;
   top: 75%;
-  left: 36%;
+  left: 25%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: left;
   margin: 0;
   padding: 0;
+  width: 601px;
+  height: 172px;
 };
+
+@mixin description_history{
+  font-family:$font_main;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: $color_main3;
+
+}
+@mixin description_history2{
+  font-family:$font_main;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+  color: $color_main2;
+
+}
+
+@mixin button_with_underline{
+  font-family: $font_main;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+
+@mixin title_premiere_news_datenews{
+  font-family: $font_main;
+  font-weight: 500;
+  font-size: 20px;
+
+}
+
+@mixin dedcription_card_date_age{
+  font-family: $font_main;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@mixin flex_con{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto ;
+  overflow: hidden;
+}
+
+/**/
+
+
 
 @mixin description{
   font-family: 'Inter';
@@ -23,19 +86,8 @@ $font_text: "Inter";
   letter-spacing: 0.2px;
 }
 
-@mixin main_con{
-  background-color: #fafafa;
-  width: 100%;
-  height: 529px ;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
 @mixin main_photo{
-  /*background-color: #59f17f;*/
-  width: 1280px;
+  width: 1390px;
   height: 529px;
   position: relative;
   overflow: hidden;
@@ -44,41 +96,41 @@ $font_text: "Inter";
 
 
 .main_con{
-  @include main_con();
-}
+  @include flex_con();
+  background-color: #fafafa;
 
-.main_photo{
-  @include main_photo();
-  &::before {
-    content: '';
-    position: absolute;
-    top:0;
-    left:0;
-    width: 1280px;
-    height: 529px;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.7) 0%,  
-      rgba(0, 0, 0, 0.3) 50% 
-    );
-    z-index: 1;
-  }
+  .main_photo{
+    @include main_photo();
 
- .photo_theatre {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1280px;
-    height: 529px;
-  
-    z-index: 0; // фон — самое низкое
-  }
-
-  .text_h1 {
-    @include heading_1();
+    &::before {
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      width: 1390px;
+      height: 529px;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.7) 0%,  
+        rgba(0, 0, 0, 0.3) 50% 
+      );
+      z-index: 1;
+    }
+    .photo_theatre {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 1390px;
+       height: 529px;
     
-}
+       z-index: 0; // фон — самое низкое
+     }
+    
+     .text_h1 {
+       @include heading_1(); 
+    }
   }
+}
   .back_tofront {
     position: absolute;
     bottom: 20px;
@@ -102,23 +154,7 @@ $font_text: "Inter";
     }
   }
 
-body{
-  background-color: #fafafa;;
-}
-/*Кнопки навигации*/
-.navigate {
-  background-color: transparent;
-  cursor: pointer;
-  border-radius: 0;
-}
-.navigate:hover,
-.navigate-active
-{
-  background-color: transparent;
-  cursor: pointer;
-  border-radius: 0;
-  border-bottom: 2px solid white;
-}
+
 
 .main_con2{
   height: 120px ;
@@ -139,9 +175,7 @@ body{
     height: 120px;
     white-space: nowrap;
   
-    .description_all {
-    margin-left: 53px;
-    width: 600px;
+    
 
   .description {
     display: flex;
@@ -184,7 +218,7 @@ body{
     height: 21px;
     font-size: 18px;
     font-weight: 400;
-    font-family: $font_text;
+    font-family: $font_main;
     text-decoration: underline; // Подчёркивание
     text-underline-offset: 4px; // Отступ подчёркивания от текста
     cursor: pointer;
@@ -193,7 +227,7 @@ body{
       color: #FA434B;
     }
 }
-}
+
 .main_con3{
   width: 100%;
   height:670px;

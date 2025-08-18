@@ -1,19 +1,31 @@
-$main_color: #FFFFFF;
-$con_color: #FFFFFF;
-$logo_button: #FFFFFF;
-$button: #FFFFFF;
-$button_text_color: #f31717;
+@use '@fontsource/inter';
 $button_font: 'Inter';
-$nav-button-active-bg: #DCDEEE;
-@import '@fontsource/inter';
+$color_main:#ffffff;
+$color_main2:#f31717;
+$color_main3:#282828;
+
+@mixin text{
+  font-family: $button_font;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  color: $color_main3;
+}
+
+@mixin flex_con{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: $color_main;
+}
+
 
 .header_con {
+  @include flex_con();
   width: 100%;
   height: 71px;
-  background-color: $main_color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   top: 0;          
   left: 0;
   right: 0;
@@ -22,18 +34,14 @@ $nav-button-active-bg: #DCDEEE;
 
   .logo_nav_con {
     width: 1280px;
-    background-color: $con_color;
+    background-color: $color_main;
     height: 71px;
     display: flex;
     
   
     .logo_button {
-      background-color: $logo_button;
+      @include flex_con();
       height: 71px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
       width: auto;
       margin-bottom: 0px;
       gap: 20px;
@@ -47,46 +55,115 @@ $nav-button-active-bg: #DCDEEE;
     }
 
     .button {
-      background-color: $button;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      @include flex_con();
       gap:50px;
 
       
       .navigate {
+        @include text();
         cursor: pointer;
         padding: 10px;
-        font-family: $button_font;
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: 0;
-        line-height: 24px;
         height: auto;
         margin-top: 12px;
         border-bottom: none !important;
     
 
         &:hover {
-          color: $button_text_color;
+          color: $color_main2;
           border-bottom: none !important;
         }
       }
       
       .navigate-active {
+        @include text();
         cursor: pointer;
         padding: 10px;
-        font-family: $button_font;
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: 0;
-        line-height: 24px;
         height: auto;
         margin-top: 12px;
-        color: $button_text_color !important;
+        color: $color_main2 !important;
         border-bottom: none !important;
       }
     } 
   }
+}
+// Мобильное меню (скрыто по умолчанию)
+.mobile-menu {
+  display: none; // Скрыто на всех экранах по умолчанию
+
+  .theater-name {
+    font-family: $button_font;
+    font-weight: 600;
+    font-size: 16px;
+    color: #282828;
+    margin-right: 10px;
+  }
+
+  .burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+    color: #282828;
+  }
+}
+
+// Скрытие/показ по размеру экрана
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .header_con {
+  @include flex_con();
+ 
+  .logo_nav_con {
+    width: 1280px;
+    background-color: $color_main;
+    height: 71px;
+    display: flex;
+    
+    .logo_button {
+      height: 71px;
+      width: auto;
+      margin-bottom: 0px;
+      gap: 20px;
+      
+      .logo_img {
+        width: 55px;
+        height: 55px;
+        margin-top: 8px;
+        margin-left: 20px;
+      }
+    }
+
+    .button {
+      @include flex_con();
+      gap:50px;
+      display: none;
+    } 
+    .mobile-only {
+    display: flex !important;
+    align-items: center;
+    gap:150px;
+
+    .menu{
+      margin-right: 20px;
+      cursor: pointer;
+
+      &:hover{
+        background-color: $color_main2;
+      }
+    }
+  }
+
+  .theater-name{
+    @include text();
+  }
+  }
+}
 }

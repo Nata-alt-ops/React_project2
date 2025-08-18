@@ -202,13 +202,13 @@ export const Main = () => {
     if (premieres.length === 0) return [];
     const prev = currentIndex === 0 ? premieres.length-1 : currentIndex-1;
     const next = currentIndex === premieres.length-1 ? 0 : currentIndex+1;
-    const nextNext = (currentIndex + 2) % premieres.length;
+    
 
     return [
       premieres[prev],
       premieres[currentIndex],
       premieres[next],
-      premieres[nextNext]
+     
     ];
    };
 
@@ -223,6 +223,13 @@ export const Main = () => {
       <div className='text'>
         <h1 className='text_h1'>Казанский театр юного зрителя</h1>
       </div>
+        <div className="description_con_mobile">
+      <div className="description">
+        <div className="column"><p className="q">Дата основания</p><p className="e">1932 год</p></div>
+        <div className="column"><p className="q">2020-2021 год</p><p className="e">32 спектакля</p></div>
+        <div className="column"><p className="q">Абсолютно для всех</p><p className="e">0+</p></div>
+      </div>
+    </div>
       </div>
     </div>
     <div className='main_con2'>
@@ -246,7 +253,7 @@ export const Main = () => {
             </div>
           </div>
         </div>
-      <p className='description_button' onClick={() => navigate('/about')}>Узнать подробнее</p>
+        <p className='description_button' onClick={() => navigate('/about')}>Узнать подробнее</p>
         </div>
      </div>
      <div className='main_con3'>
@@ -275,6 +282,10 @@ export const Main = () => {
             
           ))}
         </div>
+         {/* Кнопка "Еще" */}
+    <button className="button_more" onClick={() => navigate('/premieres')}>
+      Еще →
+    </button>
          <div className='back_front'>
           <div className='button'>
               <img 

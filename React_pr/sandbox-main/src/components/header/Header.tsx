@@ -39,6 +39,14 @@ export const Header = () => {
             </div>
           ))}
         </div>
+        <div className='mobile-menu mobile-only'>
+          <span className='theater-name'>Казанский ТЮЗ</span>
+          <div className='menu'>
+            <span>
+              <img src='/Group 209.png' alt=''></img>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     </div>

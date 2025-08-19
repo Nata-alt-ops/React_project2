@@ -329,6 +329,12 @@ export const Main = () => {
                       <div className='picture_news'>
                           <img src={newsItem.picture_news} alt={newsItem.title_news} className='news_img'></img>
                       </div>
+
+                      <div className='date_overlay'>
+                      <p className='date_news_mobile'>{newsItem.date_news}</p>
+                    </div>
+
+
                       <div className='title_date'>
                           <div className='title_news' onClick={() => navigate(`/news/${newsItem.id}`)}>{newsItem.title_news}</div>
                           <div className='date_news'>{newsItem.date_news}</div>

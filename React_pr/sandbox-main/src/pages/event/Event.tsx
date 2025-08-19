@@ -26,6 +26,12 @@ if (!premiereInfo) {
         <div className='con_event'>
           <div className='event_photo'>
             <img src={premiereInfo?.photo} alt={premiereInfo?.title_premiere} className='event_img'  style={imageStyle} />
+            <div className='date_overlay_mobile'>
+              <div className='colum'>
+              <p className='event_time'>Длительность</p>
+              <p className='text_time_age'>{premiereInfo.time}</p>
+            </div>
+            </div>
           </div>
         </div>
       </div>

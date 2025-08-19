@@ -735,59 +735,60 @@ display: none; /* Скрыто по умолчанию */
     
     
    .main_con3 {
+    height: auto !important; 
     .main_card {
+      min-height: auto;
+      /*height: 1803px;*/
+      height: auto !important; 
       .Premier_h1 {
         text-align: center;
         font-size: 30px;
+        margin-bottom: 50px;
       }
 
       .premier_con {
         @include flex_con();
-        flex-direction: column;
-        gap: 20px;
-        overflow: visible;
-        width: 100%;
-        padding: 0 10px;
-        align-items: center;
-        justify-content: center;
-        height: 915px;
+        flex-direction: column !important;
+        gap: 30px !important; 
+        align-items: center !important;
+        height: auto !important;
+
 
       }
       .button_more {
-          display: none !important;
           margin: 30px auto;
           padding: 12px 30px;
           border-radius: 50px;
-          border: 2px solid $color_main4;
+          border: 2px solid $color_main2;
           background-color: transparent;
-          color: $color_main4;
+          color: $color_main2;
           font-size: 16px;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s;
           display: block;
-          width: fit-content;
+          width: 90%;
 
           &:hover {
-            background-color: $color_main4;
-            color: white;
+            background-color: $color_main;
+            color: $color_main4;
+            border: 2px solid $color_main4;
           }
     }
 
       .premiere-card {
-        width: 100%;
-        max-width: 374px;
-        height: auto;
-        min-height: 503px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin-left: 9px;
+        width: 90% !important;
+        max-width: 374px !important;
+        height: 503px !important;
+        margin: 0 auto !important; // Центрируем карточку
+        position: relative !important;
+          
 
-          &::before {
+        &::before {
         content: '';
         top:0 ;
         left:0;
-        width: 374px;
+        width: 371px;
         height: 503px;
         background: linear-gradient(
           to top,
@@ -798,16 +799,16 @@ display: none; /* Скрыто по умолчанию */
       pointer-events: none; /* Чтобы не мешал кликам */
       }
 
-        .card_img {
-          width: 100%;
-          height: 503px;
-          object-fit: cover;
-        }
+         .card_img {
+            width: 100% !important;
+            height: 100% !important;
+            
+          }
 
         .premier_date {
           display: flex;
           gap: 10px;
-          margin: 10px 15px;
+          margin: 21px 28px;
           z-index: 2;
 
           .card_date,
@@ -831,7 +832,7 @@ display: none; /* Скрыто по умолчанию */
 
         .card_title {
           font-size: 18px;
-          margin: 10px 15px;
+          margin: 10px 28px;
           color: $color_main;
           z-index: 2;
           margin-top: 389px;
@@ -844,105 +845,208 @@ display: none; /* Скрыто по умолчанию */
         .card_description {
           font-size: 12px;
           color: #C7C7C7;
-          margin: 10px 15px;
+          margin: 10px 28px;
           line-height: 16px;
           z-index: 2;
           margin-top: 421px;
           font-family: "Inter";
           font-weight: 400;
           color: $color_main9;
+          width: 323px;
 
         }
       }
     }
+    .back_front {
+        display: none !important; // Скрываем кнопки навигации на мобильных
+      }
+      
+      .button_more {
+        display: block !important; // Показываем кнопку "Еще"
+        margin: 30px auto !important;
+      }
   }
 
   
   
   .main_con4 {
-    .buttons_4_con {
-      .buttons_4 {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        
-        [class^='buttons_vid'] {
-          padding: 10px 20px;
-          min-width: 200px;
-          border-radius: 30px;
-          border: 2px solid $color_main;
-          background-color: $color_main4;
-          color: $color_main;
-          font-size: 16px;
-          transition: all 0.3s;
-          
-          &:hover {
-            background-color: $color_main;
-            color: $color_main4;
-          }
-        }
-      }
-    }
-  }
+  height: auto;
+  padding: 20px 0; // Добавляем отступы сверху и снизу
   
-  .main_con5 {
-    .news_con {
-      .news_news {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-        margin: 0 auto;
-        max-width: 350px;
-        
-        .card_news {
-          width: 100%;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-          
-          .picture_news {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            
-            .news_img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
+  .buttons_4_con {
+    background-color: $color_main4;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto; // Меняем фиксированную высоту на auto
+    padding: 0px 0; // Добавляем внутренние отступы
 
-          .title_date {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 15px;
-            margin-bottom: 5px;
-            
-            .title_news {
-              font-size: 16px;
-              color: #1E201F;
-              cursor: pointer;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
-            
-            .date_news {
-              font-size: 14px;
-              color: #86837F;
-            }
-          }
-          
-          .description_news {
-            font-size: 12px;
-            color: #86837F;
-            padding: 0 15px;
-            margin-bottom: 10px;
-          }
+    .buttons_4 {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      width: 90%;
+      max-width: 239px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      min-height: 300px;
+    
+      
+      [class^='buttons_vid'] {
+        padding: 6px 20px; // Увеличиваем отступы внутри кнопок
+        min-width: auto; // Убираем минимальную ширину
+        border-radius: 30px;
+        border: 2px solid $color_main;
+        background-color: $color_main4;
+        color: $color_main;
+        font-size: 16px;
+        text-align: center; // Центрируем текст
+        transition: all 0.3s;
+        
+        &:hover {
+          background-color: $color_main;
+          color: $color_main4;
+        }
+
+        .buttons_vid2{
+          width: 200px;
+
         }
       }
     }
   }
 }
+.main_con5{
+  @include flex_con();
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+
+  .news_con{
+    @include flex_con();
+    background-color: $color_main;
+    height: auto;
+    width: 1390px;
+    flex-direction: column;
+
+    .text_more_news{
+
+      .news_text{
+        @include title_premiere_news_h1();
+        font-size: 30px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 93px;
+      }
+    }
+    
+
+    .more_news{
+      display: none !important;
+      @include button_with_without_underline();
+      color:$color_main2;
+      cursor: pointer;
+      margin-top: 60px;
+      margin-left: 0px;
+      margin-right: 50px;
+
+      &:hover{
+        color: $color_main4;
+      }
+    }
+
+    .news_news{
+      @include flex_con();
+      width: 1290px;
+      margin-left: 20px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap:20px;
+
+      .card_news{
+        width:371px;
+        height: auto;
+         position: relative; 
+
+        .title_date{
+          margin-top: 20px;
+          z-index: 2;
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 376px;
+          height: auto;
+          margin-bottom: 20px;
+          z-index: 2;
+          
+
+          .title_news{
+            @include title_premiere_news_datenews();
+            color:#1E201F;
+            white-space: normal;
+            cursor: pointer;
+            
+            &:hover{
+              color: $color_main4;
+            }
+          }
+          .date_news{
+            display: none !important;
+            @include title_premiere_news_datenews();
+            color:#C4C4C4;
+            z-index: 2;
+            position: absolute ;
+            text-align: right !important;
+          }
+        }
+        .picture_news{
+          background-color: #C7C7C7;
+          width: 371px ;
+          height: 150px;
+          overflow: hidden;
+          z-index: 0;
+          position: relative; 
+
+          .news_img{
+            width: 371px;
+            height: 150px;
+            position: absolute;
+            object-fit: cover;
+            min-width: 100%;
+            z-index: 1;
+          }
+        }
+        .description_news{
+          @include description_card_news();
+          color: #86837F;
+          margin-top: 10px;
+        }
+      }
+
+         // НОВЫЙ БЛОК: Контейнер для даты поверх изображения
+        .date_overlay {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 3; // Поверх изображения
+          padding: 4px 8px;
+          border-radius: 4px;
+          
+          .date_news_mobile {
+            @include title_premiere_news_datenews();
+            color:$color_main9 !important; // Белый цвет текста
+            margin: 0;
+            text-align: center;
+          }
+        }
+    }
+  }
+
+
 }
+
+
+  
+  }}

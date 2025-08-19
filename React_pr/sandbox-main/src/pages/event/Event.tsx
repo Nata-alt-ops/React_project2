@@ -30,12 +30,20 @@ if (!premiereInfo) {
               <div className='colum'>
               <p className='event_time'>Длительность</p>
               <p className='text_time_age'>{premiereInfo.time}</p>
+              <div className='colum'>
+              <p className='event_time'>Ограничение</p>
+              <p className='text_time_age'>{premiereInfo.age}</p>
+            </div>
             </div>
             </div>
           </div>
+          
+
         </div>
       </div>
       <div className='con_event_info'>
+        <div className='name_premier_mobile'>{premiereInfo.title_premiere}</div>
+        
           <div className='event_info'>
 
             <div className='info'>
@@ -60,6 +68,12 @@ if (!premiereInfo) {
             </div>
           </div>
         </div>
+
+         <div className='event_button_mobile'>
+        <button onClick={() => navigate(`/buy_ticket/${premiereInfo.id}`)}>Купить билет</button>
+      </div>
+
+        
 
         <div className='info_change'>
           <div className='button_infor'>

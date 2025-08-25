@@ -2,7 +2,6 @@ import React from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
 import './Header.scss';
 
-
 export const Header = () => {
   const {pathname} = useLocation();
   const navigate = useNavigate();
@@ -24,7 +23,8 @@ export const Header = () => {
       name: 'О театре',
       path: '/about_theater',
     },
-    ];
+  ];
+  
   return (
     <div className={'header_con'}>
       <div className={'logo_nav_con'}>
@@ -32,23 +32,30 @@ export const Header = () => {
           <div className={'logo'}>
             <img src='/logo.jpg' alt='' className={'logo_img'}></img>
           </div>
-        <div className={'button'}>
-          {navigateMenu.map((menu) => (
-            <div onClick={() => navigate(menu.path)} className={isActive(menu.path) ? 'navigate-active' : 'navigate'}>
-              <>{menu.name}</>
-            </div>
-          ))}
+          <div className={'button desktop-only'}>
+            {navigateMenu.map((menu) => (
+              <div 
+                key={menu.path} 
+                onClick={() => navigate(menu.path)} 
+                className={isActive(menu.path) ? 'navigate-active' : 'navigate'}
+              >
+                {menu.name}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='mobile-menu mobile-only'>
+        
+        <div className='mobile-menu '>
+          <div className='mobile-only'>
           <span className='theater-name'>Казанский ТЮЗ</span>
           <div className='menu'>
             <span>
               <img src='/Group 209.png' alt=''></img>
             </span>
           </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-  )
+  );
 };

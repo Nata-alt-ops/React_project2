@@ -21,6 +21,14 @@ if (!premiereInfo) {
 }
   return (
     <div className="event-page">
+
+
+
+
+
+
+
+      
       <div className='con'>
         <div className='con_event'>
           <div className='event_photo'>
@@ -112,6 +120,24 @@ if (!premiereInfo) {
         </div>
         
       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     </div>
   );

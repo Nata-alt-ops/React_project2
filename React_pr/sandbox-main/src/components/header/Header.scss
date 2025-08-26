@@ -1,8 +1,7 @@
 @use '@fontsource/inter';
 $button_font: 'Inter';
 $color_main:#ffffff;
-$color_main2:#FA434B;
-$color_main3:#282828;
+$color_main2:#282828;
 
 @mixin text{
   font-family: $button_font;
@@ -10,7 +9,7 @@ $color_main3:#282828;
   font-size: clamp(12px, 2.5vw, 14px);
   line-height: 18px;
   letter-spacing: 0.2px;
-  color: $color_main3;
+  color: $color_main2;
 }
 
 @mixin flex_con{
@@ -133,6 +132,8 @@ $color_main3:#282828;
   .header_con {
     .logo_nav_con {
       .logo_button {
+        padding-left: 0px !important;
+        margin-left: 0;
         .button {
           display: none !important;
         }
@@ -140,17 +141,14 @@ $color_main3:#282828;
     }
   }
 
-  // Показываем мобильное меню
-  .mobile-menu,
-  .mobile-only {
+  .mobile-menu{
     display: flex !important;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    background-color: white;
-    min-height: 71px;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-left: 20px;
+    padding-right: 0px;
   }
 
   .theater-name {

@@ -20,35 +20,35 @@ $color_main11:#fafafa;
 @mixin heading_1 {
   font-family:'Inter';
   font-weight: 700;
-  font-size: 72px;
+  font-size: min(72px, calc(100vw - 100px)) !important;
   line-height:1.2;
   letter-spacing:0.2px;
   color: #ffffff;
-  position: absolute;
-  top: 75%;
-  left: 27%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
   text-align: left;
   margin: 0;
   padding: 0;
-  width: 650px;
-  height: 172px;
+  white-space: normal;
+  width: 722px;
+  word-wrap: break-word;
+
+
 };
 
 @mixin description_history{
   font-family:$font_main;
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(6px, 4.5vw, 12px) !important;
+  //font-size: 12px;
   letter-spacing: 0.2px;
   color: $color_main3;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 
 }
 @mixin description_history2{
   font-family:$font_main;
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(10px, 2.5vw, 24px) !important;
+  //font-size: 24px;
   letter-spacing: 0.2px;
   color: $color_main2;
 
@@ -57,7 +57,9 @@ $color_main11:#fafafa;
 @mixin button_with_without_underline{
   font-family: $font_main;
   font-weight: 600;
-  font-size: 18px;
+  font-size: clamp(12px, 4vw, 18px) !important;
+  padding-right: 20px;
+  //font-size: 18px;
 
 }
 
@@ -105,36 +107,58 @@ $color_main11:#fafafa;
 
 }
 @mixin main_photo{
-  width: 1390px;
-  height: 529px;
+  width: 100%;
+  height: auto;
+  min-height: 600px;
   position: relative;
   overflow: hidden;
+  object-fit: fill;
 }
 
 @mixin title_mobile{
   font-family: $font_main;
   font-weight: 700;
-  font-size: 44px;
   letter-spacing: 0.2px;
   color:$color_main;
 }
 
-
-
-
+body, html {
+  overflow-x: hidden;
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .main_con{
   @include flex_con();
-  background-color: #fafafa;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  max-width: 100vw; // Ограничиваем максимальную ширину
-  overflow: hidden; // Скрываем всё, что выходит за границы
+  width:100%;
+  margin: 0 auto;
+  height: 700px;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    transform: translateX(-50%);
+    left: 50%;
+  }
 
 
   .main_photo{
     @include main_photo();
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+      
 
    
 
@@ -143,8 +167,9 @@ $color_main11:#fafafa;
       position: absolute;
       top:0;
       left:0;
-      width: 1390px;
-      height: 529px;
+      width: 100%;
+      height: 100%;
+      min-height: 700px;
       background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.7) 0%,  
@@ -154,24 +179,42 @@ $color_main11:#fafafa;
     }
     .photo_theatre {
        position: absolute;
-       top: 0;
-       left: 0;
-       width: 1390px;
-       height: 529px;
-    
-       z-index: 0; // фон — самое низкое
+       top:0;
+       left:0;
+       width: 100%;
+       height: 100%;
+       min-width: 1520px;
+       object-fit: fill;
+       object-position:top center;
+       z-index: 0; 
+       transform: scale(1.2);
+      transform-origin: bottom;
 
 
      }
+     .text{
+      position: absolute;
+      top: 60%;
+      left:46px;
+      z-index: 3;
+      display: flex;
+      max-width: calc(100% - 100px);
+      width: auto;
+     
+
+       .text_h1 {
+        @include heading_1();
+        color: white;
+
+
+      }
+
+     }
     
-     .text_h1 {
-       @include heading_1(); 
-    }
   }
 }
 
  
-
   .back_tofront {
     position: absolute;
     bottom: 20px;
@@ -198,71 +241,88 @@ $color_main11:#fafafa;
 
 .main_con2{
   @include flex_con();
-  height: 120px ;
+  height: auto;
+  min-height: 120px ;
   width: 100%;
-  background-color: #fafafa;
+  background-color: $color_main11;
   justify-content: center;
-  align-items: center;
-  margin-top: 0px;
-
 
   .description_con{
     @include flex_con();
-    background-color: $color_main10;
-    gap: 450px;
-    width: 1280px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color_main11;
+    width: 100%;
+    max-width: calc(100% - 100px);
     height: 120px;
-    white-space: nowrap;
-    
+  
+    box-sizing: border-box;
+    gap: 0px; 
+    min-width: 0;
+
     .description {
       @include flex_con();
       justify-content: space-between; 
       align-items: flex-start;
-      gap: 0;
-      flex-wrap: nowrap;
-      width: 600px;
+      gap: clamp(12px, 4vw, 100px);
+      width: auto;
+      max-width: 600px;
       height: 120px;
-  
+      min-width: 0;
+    
     .column {
       @include flex_con();
       flex-direction: column;
       gap: 0; 
       margin-top: 30px;
-  
+      min-width: 0;
+    
       .q, .e {
         margin: 1px; 
         padding: 0;
         line-height: 1.2; 
       }
-  
+    
       .q {
         color: $color_main3;
         @include description_history();
       }
-  
+    
       .e {
         color: $color_main2;
          @include description_history2();
       }
     }
-  }
+    }
     .description_button{
       @include button_with_without_underline();
       letter-spacing: 0.2px;
       color:$color_main2;
-      margin-top: 47px;
-      width: 157px;
-      height: 21px;
+      margin-top: 0;
+      width: auto;
+      max-width: 197px;
+      min-height: 21px;
       text-decoration: underline; // Подчёркивание
       text-underline-offset: 4px; // Отступ подчёркивания от текста
       cursor: pointer;
+      white-space: nowrap;
+      padding: 0 10px;
     
       &:hover{
         color: #FA434B;
       }
     }
-  }
+    .description_button_mobile{
+      display: none;
+    }
 }
+
+
+
+   
+    
+  }
+
 .description_con_mobile {
 display: none; /* Скрыто по умолчанию */
 }
@@ -276,9 +336,9 @@ display: none; /* Скрыто по умолчанию */
   justify-content: center;
 
   .main_card{
-    width: 1280px;
+    width: calc(100% - 100px);
     height: 670px;
-    background-color: $color_main;
+    //background-color: $color_main;
 
     .Premier_h1{
     @include title_premiere_news_h1();
@@ -290,10 +350,12 @@ display: none; /* Скрыто по умолчанию */
       justify-content: flex-start;
       gap: 20px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1624px;
       padding: 0 0px;
       box-sizing: border-box;
       overflow: hidden; 
+      height: 500px;
+      
 
       
     }
@@ -304,6 +366,7 @@ display: none; /* Скрыто по умолчанию */
       margin-top: 50px;
       background-color: $color_main;
       position: relative;
+      
     
       &::before {
         content: '';
@@ -593,11 +656,10 @@ display: none; /* Скрыто по умолчанию */
 
 
 }
-/*Адаптивность для телефона*/
+/*Адаптивность для экранов менее 673 пикселя*/
 
-@media (max-width: 768px) {
-
-  .site_con{
+@media (max-width: 673px) {
+.site_con{
   min-height: 100vh;
   width: 100%;
   height: auto;
@@ -607,23 +669,30 @@ display: none; /* Скрыто по умолчанию */
   .main_con {
     @include flex_con();
     width: 100%;
-    height: auto;
+    min-height: 718px;
     overflow: hidden;
     justify-content: center;
+    height: 718px !important;
+    object-fit: cover;
+    object-position: center;
 
     
     .main_photo {
       @include flex_con();
-      height: 78vh;
+      min-height: 718px !important;
+      height: auto !important;
+      object-fit: cover;
+      object-position: center;
       width: 100%;
       justify-content: center;
       overflow: hidden;
       
       .photo_theatre {
-        height: 718px;
         width: 100%;
+        min-height: 718px !important;
+        height: auto !important;
         object-fit: cover;
-        object-position: right center;
+        object-position: center;
         margin-bottom: 700px !important;
         z-index: 0;
         position: absolute;
@@ -647,21 +716,32 @@ display: none; /* Скрыто по умолчанию */
     
     .text {
       position: absolute;
-      top: 91%;
-      left: 73%;
-      width: 100%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+      top: auto !important;
+      max-width: none !important;
+      width: 100% !important;
       z-index: 2;
-      padding: 0 20px;
+      display: flex !important;
+      //padding-left: 20px;
+      left:20px;
+      bottom: 30px !important;
+      transform: none !important;
+      text-align: center !important;
+      margin-bottom: 20px !important;
+  
       
       
       .text_h1 {
           @include title_mobile();
+          width: calc(100% - 40px) !important;
           max-width: 100%;
           color: white;
           z-index: 2;
-          margin-left: 20px;
+          text-align: left;
+          line-height: 100%;
+          white-space: wrap !important;
+          font-size: clamp(43px, 8vw, 51px) !important; 
+          margin-bottom: 20px;
+
         }
       }
       
@@ -688,24 +768,28 @@ display: none; /* Скрыто по умолчанию */
             .q{
               @include description_history();
               color: $color_main9;
-              font-size: 18px;
+              font-size: 18px !important;
               margin-bottom: 0px;
             }
             .e{
               @include description_history2();
               color: $color_main;
-              font-size: 36px;
+              font-size: 36px !important;
               margin-top: 0px;
             }
           }
+
+
         }
+    
+
       }
     }
   }
 
   .main_con2 {
     @include flex_con();
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
@@ -715,20 +799,30 @@ display: none; /* Скрыто по умолчанию */
     background-color: $color_main10;
     
     .description_con{
+          width: calc(100% - 100px) !important;
+          display: flex; 
+          justify-content: center !important;
+          text-align: center !important;
         .description_all{
           display: none;
         }
         .description_button {
-          margin-top: 50px;
-          text-align: center;
-          width: 100%;
-          text-decoration: underline;
-          text-underline-offset: 4px;
-  
-          &:hover{
-            color: #FA434B;
-          }
+          display: none;
         }
+        .description_button_mobile {
+            display: flex; 
+            @include button_with_without_underline();
+            letter-spacing: 0.2px;
+            color:$color_main2;
+            margin-top: 0;
+            text-decoration: underline; // Подчёркивание
+            text-underline-offset: 4px; // Отступ подчёркивания от текста
+            cursor: pointer;
+            white-space: nowrap;
+            &:hover{
+              color: #FA434B;
+            }
+            }
       }
       
     }
@@ -738,7 +832,7 @@ display: none; /* Скрыто по умолчанию */
     height: auto !important; 
     .main_card {
       min-height: auto;
-      /*height: 1803px;*/
+      height: 1803px;
       height: auto !important; 
       .Premier_h1 {
         text-align: center;
@@ -796,7 +890,7 @@ display: none; /* Скрыто по умолчанию */
           rgba(0, 0, 0, 0.1) 50% 
         );
       z-index: 1;
-      pointer-events: none; /* Чтобы не мешал кликам */
+      pointer-events: none; 
       }
 
          .card_img {

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-modal';
-import { useForm } from 'react-hook-form';
-import { data, useNavigate } from 'react-router-dom';
-import { news } from '../../helper/HelpNews';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Main.scss';
+
 
 
 
@@ -180,7 +178,7 @@ export const Main = () => {
    const [currentIndex, setCurrentIndex] = useState(0);
 
     // Проверка наличия данных перед рендерингом
-  if (!premieres || premieres.length === 0) {
+  /*if (!premieres || premieres.length === 0) {
     return <div>Загрузка премьер...</div>;
   }
 
@@ -210,15 +208,26 @@ export const Main = () => {
       premieres[next],
      
     ];
-   };
+   };*/
+   
+  
+
+  const nextPremiere = () => {
+  setCurrentIndex((prev) => (prev + 1) % premieres.length);
+};
+
+const prevPremiere = () => {
+  setCurrentIndex((prev) => (prev - 1 + premieres.length) % premieres.length);
+};
+   
 
 
   /*Что мы видим в итоге*/ 
   return (
     <div className='site_con'>
     <div className='main_con'>
-      <div className='main_photo'>
-      <img src='/d86f59407d1c4f19b504b079f67d9a0522863cb1.jpg' alt='' className='photo_theatre'></img>
+      <div className='main_photo' style={{ backgroundImage: "url('/theatre.jpg')" }}>
+      {/*<img src='/theatre.jpg' alt='' className='photo_theatre'></img>*/}
       {/*<h1 className='text_h1'>Казанский театр юного зрителя</h1>*/}
       <div className='text'>
         <h1 className='text_h1'>Казанский театр юного зрителя</h1>
@@ -254,6 +263,7 @@ export const Main = () => {
           </div>
         </div>
         <p className='description_button' onClick={() => navigate('/about')}>Узнать подробнее</p>
+        <p className='description_button_mobile' onClick={() => navigate('/about')}>Узнать подробнее</p>
         </div>
      </div>
      <div className='main_con3'>
@@ -261,10 +271,38 @@ export const Main = () => {
         <h1 className='Premier_h1'>Ближайшие премьеры</h1>
       
         <div className='premier_con'>
-          {getCardPremieres().map((premiere, index) =>(
+          <div className='card'      style={{
+        transform: `translateX(-${currentIndex * 320}px)`, // ширина слайда + отступ
+        transition: 'transform 0.5s ease',
+        display: 'flex',
+        gap: '20px',
+      }}>
+            {premieres.map((premiere) => (
+              <div key={premiere.id}>
+                <img src={premiere.photo} alt="" className='card_img'></img>
+                <div className='premier_date'>
+                <div className='card_date'>
+                <p className='c'>{premiere.time_date}</p>
+                </div>
+                <div className='card_age'>
+                <p className='d'>{premiere.age}</p></div>
+                </div>
+                <h3 className='card_title' onClick={() => navigate(`/event/${premiere.id}`)}
+                  >{premiere.title}</h3>
+                <p className='card_description'>{premiere.description}</p>
+              </div>
+            ))}
+          </div>
+           <button onClick={prevPremiere} >
+        ◀
+      </button>
+      <button onClick={nextPremiere}>
+        ▶
+      </button>
+          {/*{getCardPremieres().map((premiere, index) =>(
             premiere &&(
             <div key={premiere.id}
-            className={`premiere-card ${index === 1 ? 'active' : ''}`} >
+            className={`premiere-card ${index === 2 ? 'active' : ''}`} >
               <img src={premiere.photo} alt="" className='card_img'></img>
               <div className='premier_date'>
                 <div className='card_date'>
@@ -280,13 +318,13 @@ export const Main = () => {
               
             )
             
-          ))}
+          ))}*/}
         </div>
          {/* Кнопка "Еще" */}
     <button className="button_more" onClick={() => navigate('/premieres')}>
       Еще →
     </button>
-         <div className='back_front'>
+        {/* <div className='back_front'>
           <div className='button'>
               <img 
                 src='/Back.png' 
@@ -300,7 +338,7 @@ export const Main = () => {
                 alt='' 
                 className='button_tofront' 
                 onClick={nextPremiere}/></div>
-            </div>
+            </div>*/}
     
           </div>
           </div>

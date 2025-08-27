@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import { news } from '../../helper/HelpNews';
 import { useNavigate } from 'react-router-dom';
 import './News.scss';

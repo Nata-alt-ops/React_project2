@@ -25,14 +25,8 @@ type News = {
 }
 
 export const Main = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-   const [cityFilter, setCityFilter] = useState('all');
-
-   const[premieres, setPremieres] = useState<Premiere[]>([
+  const[premieres, setPremieres] = useState<Premiere[]>([
       {
         id:1,
         time_date:'24 мая, 18:30',

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { premiere} from '../../helper/HelpPremiere'; 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import './Event.scss';
 export const Event = () => {
   const [activeTab, setActiveTab] = useState<'About_the_performance' | 'Group'>('About_the_performance');

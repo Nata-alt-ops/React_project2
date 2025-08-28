@@ -86,7 +86,7 @@ $color_main11:#fafafa;
 @mixin title_premiere_news_h1{
   font-family: $font_main;
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(30px, 5vw,36px);
   letter-spacing: 0.2px;
   color: $color_main2;
 }
@@ -103,6 +103,7 @@ $color_main11:#fafafa;
   font-size: 18px;
   letter-spacing: 0.2px;
   color: $color_main;
+  line-height: 100%;
   
 
 }
@@ -308,177 +309,191 @@ display: none; /* Скрыто по умолчанию */
 .main_con3{
   @include flex_con();
   width: 100%;
-  height:670px;
+  max-width: 100%;
+  height: auto;
+  min-height:670px;
   background-color: $color_main;
   justify-content: center;
 
   .main_card{
-    width: calc(100% - 100px);
+    width: calc(100% - clamp(20px, 5vw, 100px));
     height: 670px;
-    //background-color: $color_main;
+    background-color: $color_main;
 
     .Premier_h1{
-    @include title_premiere_news_h1();
-    margin-top: 50px;
-    margin-bottom: 0px;
+      @include title_premiere_news_h1();
+      margin: 50px 0 30px;
     }
-    .premier_con {
-      /*@include flex_con();
-      justify-content: flex-start;
-      gap: 20px;
-      width: 100%;
-      max-width: 1624px;
-      padding: 0 0px;
-      box-sizing: border-box;
-      overflow: hidden; 
-      height: 500px;*/
-      display: flex;
-      gap: 74px;
-      padding: 0 20px;
+    .premier_con_wrapper {
       overflow: hidden;
-          
+      width: 100%;
+    
 
-      
-    }
-    
-    .premiere-card{
-      min-width: 300px;
-  max-width: 300px;
-  flex: 0 0 300px;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      /*width: 335px;
-      height: 450px;
-      margin-top: 50px;
-      background-color: $color_main;
-      position: relative;*/
-      
-    
-      &::before {
-        content: '';
-        position: absolute;
-        top:0 ;
-        left:0;
-        width: 335px;
-        height: 450px;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.7) 30%,  
-          rgba(0, 0, 0, 0.1) 50% 
-        );
-      z-index: 1;
-      pointer-events: none; /* Чтобы не мешал кликам */
-      }
-      .card_img{
-        z-index: 0;
-        position: absolute;
-       
-      }
-      .premier_date{
-        @include flex_con();
-        z-index: 2;
-        position: absolute;
+      .premier_con {
+        display: flex;
         gap: 20px;
-        margin-left: 30px;
-        margin-bottom: 0px;
-        margin-top: 30px;
-      
-        .card_date{
-          @include dedcription_card_date_age();
-          background-color: #FA434B;
-          width: 118px;
-          height: 29px;
-          text-align: center;
-          border-radius: 14px;
-          color: $color_main;
-      
-          .c{
-            margin-top: 4px;
-          }
-      
-        }
-        .card_age{
-          @include dedcription_card_date_age();
-          width: 58px;
-          height: 29px;
-          border-radius: 14px;
-          background-color:$color_main5;
-          color: $color_main6;
-          text-align: center;
-          font-size: 14px;
-      
-          .d{
-            margin-top: 5px;
-          }
-      
-      
-        }
-      }
-      .card_title{
-        @include title_premiere_news_datenews();
-        z-index: 2;
-        position: absolute;
-        color: $color_main;
-        width: 170px;
-        height: 30px;
-        margin-top: 341px;
-        margin-left: 30px;
-        word-wrap: break-word;
-        cursor: pointer;
-      
-        &:hover{
-          color: #FA434B;
-        }
-        
-      }
-      .card_description{
-        @include dedcription_card_date_age();
-        z-index: 2;
-        position: absolute;
-        color: $color_main7;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; 
-         line-clamp: 3;       
-        -webkit-box-orient: vertical;
         overflow: hidden;
-        margin-top: 387px;
-        margin-left: 30px;
-        width: 280px;
+        min-width: max-content; 
+        transition: transform 0.5s ease;
+      
         
       }
-    }
+      .premiere-card{
+        display: flex ;
+        justify-content: center;
+        width: clamp(335px, 10vw, 374px);
+        flex: 0 0 335px;
+        height: clamp(450px, 10vw, 503px);
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        position: relative;
+      
+        &::before {
+          content: '';
+          position: absolute;
+          top:0 ;
+          left:0;
+          width: 100%;
+          max-width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.7) 30%,  
+            rgba(0, 0, 0, 0.1) 50% 
+          );
+        z-index: 1;
+        pointer-events: none; /* Чтобы не мешал кликам */
+        }
+        .card_img{
+          z-index: 0;
+          position: absolute;
+         
+        }
+        .premier_date{
+          @include flex_con();
+          width: calc(100% - 56px);
+          height: calc(100% - 64px);
+          flex-direction: column;
+          z-index: 2;
+          position: relative;
+          //gap: 68%;
+          margin-top: 30px;
+          .w{
+            display: flex;
+            flex-direction: row;
+            gap:20px;
+
+            .card_date{
+              @include dedcription_card_date_age();
+              background-color: #FA434B;
+              width: clamp(118px, 7vw, 131.74px);
+              height: 29px;
+              text-align: center;
+              border-radius: 14px;
+              color: $color_main;
+          
+              .c{
+                margin-top: 4px;
+              }
+          
+            }
+            .card_age{
+              @include dedcription_card_date_age();
+              width: 58px;
+              height: 29px;
+              border-radius: 14px;
+              background-color:$color_main5;
+              color: $color_main6;
+              text-align: center;
+              font-size: 14px;
+          
+              .d{
+                margin-top: 5px;
+              }
+          
+          
+            }
+          }
+        
+          .r{
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap:10px;
+
+            .card_title{
+              @include title_premiere_news_datenews();
+              z-index: 2;
+         
+              color: $color_main;
+              word-wrap: break-word;
+              cursor: pointer;
+            
+              &:hover{
+                color: #FA434B;
+              }
+              
+            }
+            .card_description{
+              @include dedcription_card_date_age();
+              z-index: 2;
+              width: 302px;
+              color: $color_main7;
+              display: -webkit-box;
+              -webkit-line-clamp: 3; 
+               line-clamp: 3;       
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              
+            }
+          }
+        }
+      }
+}
+    
     
     .back_front{
-      margin-top: 464px;
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
       cursor: pointer;
       display: flex;
-      margin-left: 1110px;
-      width: 100px;
+      flex-direction: row;
+      justify-content: flex-end !important;
+      position: relative;
+    
+     
 
-      .button{
-        width: 45px;
-        height: 45px;
-        border-radius: 100px;
-
-         &:hover{
-          background-color:$color_main4 ;
-          border-radius: 100px;
+      .u{
+        display: flex;
+        width: 100%;
+        position: absolute;
+        left: calc(100% - 100px);
+        
+        .button{
+          width: 45px;
+          height: 45px;
+          border-radius: 12px;
+  
+           &:hover{
+            background-color:$color_main4 ;
+            border-radius: 12px;
+          }
+          .button_back,
+            .button_tofront {
+              width: 45px; 
+              height: 45px;
+              transition: opacity 0.3s;
+  
+              &:hover {
+                opacity: 0.8;
+              }
         }
-        .button_back,
-          .button_tofront {
-            width: 13px; 
-            height: 13px;
-            transition: opacity 0.3s;
-            margin-top: 15px;
-            margin-left: 15px;
-
-            &:hover {
-              opacity: 0.8;
-            }
       }
-    }
+
+      }
+
   }
     }
     .button_more {
@@ -506,31 +521,36 @@ display: none; /* Скрыто по умолчанию */
 .main_con4{
   @include flex_con();
   width: 100%;
-  height:105px;
+  min-height:105px;
+  height: auto;
   background-color: $color_main4;
   justify-content: center;
   align-items: center;
 
   .buttons_4_con{
     @include flex_con();
-    width: 1280px;
-    height: 105px;
+    width: calc(100% - 470px);
+    min-height: 105px;
+    height: auto;
     justify-content: center;
     align-items: center;
 
+
     .buttons_4{
       @include flex_con();
-      width: 886px;
-      height:45px;
+      width: 100%;
+      height:auto;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       gap:10px;
+      padding: 20px 0px;
 
        [class^='buttons_vid'] {
         @include button_vid();
         padding: 0 24px;
-        min-width: 120px;
+        min-width: auto;
+        max-width: 100%;
         height: 45px;
         border-radius: 20px;
         border: 2px solid $color_main ;
@@ -818,11 +838,9 @@ display: none; /* Скрыто по умолчанию */
     
     
    .main_con3 {
-    height: auto !important; 
+    height: auto !important;
     .main_card {
-      min-height: auto;
-      height: 1803px;
-      height: auto !important; 
+      height: auto !important;
       .Premier_h1 {
         text-align: center;
         font-size: 30px;
@@ -830,11 +848,21 @@ display: none; /* Скрыто по умолчанию */
       }
 
       .premier_con {
-        @include flex_con();
         flex-direction: column !important;
         gap: 30px !important; 
         align-items: center !important;
+        justify-content: center;
         height: auto !important;
+        transform: none !important;
+        transition: none;
+
+        .premier_con_wrapper {
+          overflow: hidden;
+          width: 100%;
+          background-color: #ffffff;}
+
+        
+    
 
 
       }
@@ -860,19 +888,21 @@ display: none; /* Скрыто по умолчанию */
     }
 
       .premiere-card {
-        width: 90% !important;
-        max-width: 374px !important;
-        height: 503px !important;
+        width: calc(100% - 10px) !important;
+        min-height: 503px !important;
         margin: 0 auto !important; // Центрируем карточку
         position: relative !important;
+        transform: none;
+        transition: none;
+
           
 
         &::before {
         content: '';
         top:0 ;
         left:0;
-        width: 371px;
-        height: 503px;
+        width: 100%;
+        height: 100%;
         background: linear-gradient(
           to top,
           rgba(0, 0, 0, 0.7) 30%,  
@@ -893,6 +923,8 @@ display: none; /* Скрыто по умолчанию */
           gap: 10px;
           margin: 21px 28px;
           z-index: 2;
+          max-width: calc(100% - 56px) !important;
+          height: calc(100% - 64px) !important;
 
           .card_date,
           .card_age {
@@ -915,10 +947,8 @@ display: none; /* Скрыто по умолчанию */
 
         .card_title {
           font-size: 18px;
-          margin: 10px 28px;
           color: $color_main;
           z-index: 2;
-          margin-top: 389px;
           font-family: 'Inter';
           font-weight: 500;
           font-size: 20px;
@@ -928,10 +958,8 @@ display: none; /* Скрыто по умолчанию */
         .card_description {
           font-size: 12px;
           color: #C7C7C7;
-          margin: 10px 28px;
           line-height: 16px;
           z-index: 2;
-          margin-top: 421px;
           font-family: "Inter";
           font-weight: 400;
           color: $color_main9;
@@ -962,13 +990,13 @@ display: none; /* Скрыто по умолчанию */
     align-items: center;
     width: 100%;
     height: auto; // Меняем фиксированную высоту на auto
-    padding: 0px 0; // Добавляем внутренние отступы
+    padding: 10px 0; // Добавляем внутренние отступы
 
     .buttons_4 {
       flex-direction: row;
       align-items: center;
       gap: 10px;
-      width: 90%;
+      width: 100%;
       max-width: 239px;
       margin: 0 auto;
       flex-wrap: wrap;
@@ -982,7 +1010,7 @@ display: none; /* Скрыто по умолчанию */
         border: 2px solid $color_main;
         background-color: $color_main4;
         color: $color_main;
-        font-size: 16px;
+        font-size: 18px;
         text-align: center; // Центрируем текст
         transition: all 0.3s;
         
@@ -991,10 +1019,7 @@ display: none; /* Скрыто по умолчанию */
           color: $color_main4;
         }
 
-        .buttons_vid2{
-          width: 200px;
-
-        }
+      
       }
     }
   }

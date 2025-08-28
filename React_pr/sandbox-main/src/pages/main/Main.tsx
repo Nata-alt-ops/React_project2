@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Main.scss';
 
@@ -216,6 +216,8 @@ const prevPremiere = () => {
      
     ];
    };*/
+  
+   
  
 
   /*Что мы видим в итоге*/ 
@@ -262,54 +264,63 @@ const prevPremiere = () => {
         <p className='description_button_mobile' onClick={() => navigate('/about')}>Узнать подробнее</p>
         </div>
      </div>
-     <div className='main_con3'>
-      <div className='main_card'>
-        <h1 className='Premier_h1'>Ближайшие премьеры</h1>
-      
-       <div className='premier_con'>
-  {getCardPremieres().map((premiere) => (
-    <div key={premiere.id} className='premiere-card'>
-      <img src={premiere.photo} alt="" className='card_img' />
-      <div className='premier_date'>
-        <div className='card_date'>
-          <p className='c'>{premiere.time_date}</p>
-        </div>
-        <div className='card_age'>
-          <p className='d'>{premiere.age}</p>
-        </div>
-      </div>
-      <h3
-        className='card_title'
-        onClick={() => navigate(`/event/${premiere.id}`)}
+    <div className='main_con3'>
+  <div className='main_card'>
+    <h1 className='Premier_h1'>Ближайшие премьеры</h1>
+
+    <div className='premier_con_wrapper'>
+      <div
+        className='premier_con'
+        style={{
+          display: 'flex',
+          transform:`translateX(-${currentIndex * 370}px)`, 
+          transition: 'transform 0.5s ease',
+          gap: '20px',
+        }}
       >
-        {premiere.title}
-      </h3>
-      <p className='card_description'>{premiere.description}</p>
+        {getCardPremieres().map((premiere) => (
+          <div key={premiere.id} className='premiere-card'>
+            <img src={premiere.photo} alt="" className='card_img' />
+            <div className='premier_date'>
+              <div className='w'>
+              <div className='card_date'>
+                <p className='c'>{premiere.time_date}</p>
+              </div>
+              <div className='card_age'>
+                <p className='d'>{premiere.age}</p>
+              </div>
+              </div>
+               <div className='r'>
+            <h3
+              className='card_title'
+              onClick={() => navigate(`/event/${premiere.id}`)}
+            >
+              {premiere.title}
+            </h3>
+            <p className='card_description'>{premiere.description}</p>
+            </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  ))}
-</div>
-         {/* Кнопка "Еще" */}
+
     <button className="button_more" onClick={() => navigate('/premieres')}>
       Еще →
     </button>
-        <div className='back_front'>
-          <div className='button'>
-              <img 
-                src='/Back.png' 
-                alt='' 
-                className='button_back' 
-                onClick={prevPremiere}
-              /></div>
-              <div className='button'>
-              <img 
-                src='/Tofront.png' 
-                alt='' 
-                className='button_tofront' 
-                onClick={nextPremiere}/></div>
-            </div>
-    
-          </div>
-          </div>
+
+    <div className='back_front'>
+      <div className='u'>
+      <div className='button'>
+        <svg  className='button_back'  onClick={prevPremiere} xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M168,48V208a8,8,0,0,1-13.66,5.66l-80-80a8,8,0,0,1,0-11.32l80-80A8,8,0,0,1,168,48Z"></path></svg>
+      </div>
+      <div className='button'>
+        <svg className='button_tofront'  onClick={nextPremiere} xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
           <div className='main_con4'>
             <div className='buttons_4_con'>

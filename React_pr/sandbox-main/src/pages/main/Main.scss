@@ -214,29 +214,6 @@ body, html {
   }
 }
 
- 
-  .back_tofront {
-    position: absolute;
-    bottom: 20px;
-    left: 92%;
-    top: 80%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 16px;
-    z-index: 2;
-
-    .button_back,
-    .button_tofront {
-      width: 48px;
-      height: 48px;
-      cursor: pointer;
-      opacity: 0.9;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
 
 
 .main_con2{
@@ -346,7 +323,7 @@ display: none; /* Скрыто по умолчанию */
     margin-bottom: 0px;
     }
     .premier_con {
-      @include flex_con();
+      /*@include flex_con();
       justify-content: flex-start;
       gap: 20px;
       width: 100%;
@@ -354,18 +331,29 @@ display: none; /* Скрыто по умолчанию */
       padding: 0 0px;
       box-sizing: border-box;
       overflow: hidden; 
-      height: 500px;
-      
+      height: 500px;*/
+      display: flex;
+      gap: 74px;
+      padding: 0 20px;
+      overflow: hidden;
+          
 
       
     }
     
     .premiere-card{
-      width: 335px;
+      min-width: 300px;
+  max-width: 300px;
+  flex: 0 0 300px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      /*width: 335px;
       height: 450px;
       margin-top: 50px;
       background-color: $color_main;
-      position: relative;
+      position: relative;*/
       
     
       &::before {
@@ -463,7 +451,7 @@ display: none; /* Скрыто по умолчанию */
     }
     
     .back_front{
-      margin-top: 20px;
+      margin-top: 464px;
       cursor: pointer;
       display: flex;
       margin-left: 1110px;
@@ -654,6 +642,7 @@ display: none; /* Скрыто по умолчанию */
     }
   }
 
+  
 
 }
 /*Адаптивность для экранов менее 673 пикселя*/

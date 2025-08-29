@@ -343,13 +343,11 @@ const prevPremiere = () => {
               <div className='news_news'>
                  {news.slice(0, 4).map((newsItem) => (
                         <div key={newsItem.id} className='card_news' >
-                      <div className='picture_news'>
+                      <div className='picture_news' >
                           <img src={newsItem.picture_news} alt={newsItem.title_news} className='news_img'></img>
+                          <div className='date_overlay'>{newsItem.date_news}</div>
                       </div>
 
-                      <div className='date_overlay'>
-                      <p className='date_news_mobile'>{newsItem.date_news}</p>
-                    </div>
 
 
                       <div className='title_date'>

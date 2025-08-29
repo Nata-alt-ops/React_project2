@@ -30,7 +30,7 @@ if (!premiereInfo) {
       
       <div className='con'>
         <div className='con_event'>
-          <div className='event_photo'>
+          <div className='event_photo' >
             <img src={premiereInfo?.photo} alt={premiereInfo?.title_premiere} className='event_img'  style={imageStyle} />
             <div className='date_overlay_mobile'>
               <div className='colum'>

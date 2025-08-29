@@ -17,22 +17,24 @@ body{
 
   .con_event{
     width: 100%;
-    max-width: 1390px;
-    height: 400px; // Фиксированная высота контейнера
+    height: 600px; 
     overflow: hidden;
-    position: relative; // Добавляем relative для ограничения absolute-элементов
-
+    position: relative; 
+   
 
     .event_photo{
 
         width: 100%;
         height: 100%;
-        position: relative;
         overflow: hidden;
 
        .event_img {
         width: 100%;
-        object-position:0% -300px; 
+        height: auto;
+         object-position:top 10%; 
+        object-fit: fill;
+        
+        
         }
 
     }

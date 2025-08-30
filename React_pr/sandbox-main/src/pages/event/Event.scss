@@ -1,6 +1,12 @@
 @use '@fontsource/inter';
-body{
-    background-color: #ffffff;
+$font_main: "Inter";
+$color_main: #282828;
+$color_main1: #ffffff;
+$color_main2: #818181;
+
+body {
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
 }
 
 * {
@@ -8,447 +14,442 @@ body{
   padding: 0;
   box-sizing: border-box;
 }
-.con{
+
+@mixin h1_text{
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 0.2px;
+  line-height: 100%;
+  color: $color_main;
+}
+@mixin h3_text{
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 100%;
+  color: $color_main;
+}
+@mixin event_time_text{
+  font-weight: 700;
+  font-size: 12px;
+  color: $color_main2;
+  line-height: 100%;
+  letter-spacing: 0.2px;
+}
+@mixin text_time_age{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.2px;
+  color: $color_main;
+
+}
+
+.event-page {
   width: 100%;
-  height: auto;
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+// Контейнер с изображением (десктоп версия)
+.con {
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 0px;
 
-  .con_event{
+  .con_event {
     width: 100%;
-    height: 600px; 
+    height: 600px;
     overflow: hidden;
-    position: relative; 
-   
+    position: relative;
 
-    .event_photo{
+    .event_photo {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      .event_img {
         width: 100%;
         height: 100%;
-        overflow: hidden;
-
-       .event_img {
-        width: 100%;
-        height: auto;
-         object-position:top 10%; 
-        object-fit: fill;
-        
-        
-        }
-
+        object-fit: cover;
+        object-position: center center;
+      }
     }
-
-    
   }
 }
 
-.con_event_info{
-    width: 100%;
-    height: 120px;
-    background-color: #FBFBFB;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-     margin-bottom: 0;
 
-    .name_premier_mobile{
-        display: none !important;
-        }
-
-    .event_info{
-        width: 1390px;
-        height: 120px;
-        background-color: #FBFBFB;
-        display: flex;
-        gap:209px;
-
-
-        .info{
-            display: flex;
-            width: 945px;
-            height: 100px;
-            gap:194px;
-            margin-left: 50px;
-            margin-top: 25px;
-       
-
-        .colum{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-
-            h1{
-                font-family: 'Inter';
-                font-weight: 700;
-                font-size: 36px;
-                letter-spacing: 0.2px;
-                color:#282828;
-            }
-            h3{
-                font-family: 'Inter';
-                font-weight: 500;
-                font-size: 18px;
-                letter-spacing: 0.2px;
-                color:#282828;
-            }
-
-            .event_time{
-                font-family: 'Inter';
-                font-weight: 700;
-                font-size: 12px;
-                letter-spacing: 0.2px;
-                color:#818181;
-            }
-            .text_time_age{
-                font-family: 'Inter';
-                font-weight: 700;
-                font-size: 24px;
-                letter-spacing: 0.2px;
-                color:#282828;
-            }
-
-
-
-        }
-        .p{
-            display: flex;
-            gap:70px;
-            margin-top: 10px;
-        }
-         }
-
-         .event_button{
-            margin-top: 25px;
-            background-color: #f33737;
-            width: 154px;
-            height: 45px;
-            text-align: center;
-            border-radius: 22px;
-            transition: background-color 0.3s ease; // Плавное изменение цвета
-
-
-            button{
-                border: none;
-                background: none;
-                font-family: 'Inter';
-                font-weight: 600;
-                font-size: 16px;
-                letter-spacing: 0.2px;
-                color:#FFFFFF;
-                cursor: pointer;
-                width: 154px;
-                height: 45px;
-                text-align: center;
-                border-radius: 22px;
-                transition: color 0.3s ease; // Плавное изменение текста
-
-                &:hover {
-                    color: #f33737;
-                }
-            }
-
-                &:hover {
-                    background-color: #FFFFFF;
-                    
-                    button {
-                        color: #f33737;
-                    }
-    }
-}
-    
-}}
-
-.info_change{
-   
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 0; 
-     
-
-    .button_infor{
-        
-        width: 1390px;
-        height: 622px;
-
-        .tab_buttons{
-            
-            margin-top: 50px;
-            margin-left: 50px;
-            margin-right: 50px;
-            display: flex;
-            justify-content: center;
-            gap:653px;
-
-            // Серая линия (фон)
-                &::before {
-                    content: "";
-                    position: absolute;
-                    bottom: 280px;
-                    left: 250px;
-                    width: 75%;
-                    height: 2px;
-                    background-color: #E0E0E0;
-                    z-index: 1;
-                    margin-right: 16px;
-                }
-
-                // Красная линия (активная часть)
-                &::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 280px;
-                    left: 250px;
-                    width: 715px;
-                    height: 2px;
-                    background-color: #FA434B;
-                    z-index: 2;
-                    transition: transform 0.3s ease;
-                }
-
-                // Позиция красной линии
-                &.About_the_performance_active::after {
-                    transform: translateX(0);
-                }
-                
-                &.Group_active::after {
-                    transform: translateX(100%);
-                }
-
-            button{
-                font-family: 'Inter';
-                font-weight: 600;
-                font-size: 14px;
-                line-height: 18px;
-                letter-spacing: 0.2px;
-                color: #282828;
-                border: none;
-                background: none;
-                margin-bottom: 10px;
-                cursor: pointer;
-
-                
-            }
-
-        }
-
-        .text_change{
-            font-family: 'Inter';
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0.2px;
-            color: #282828;
-            margin-top: 25px;
-            margin-left: 50px;
-            margin-right: 50px;
-
-            
-                p {
-                    margin-bottom: 1em;
-                    line-height: 1.6;
-                    
-                    
-                    &:last-child {
-                    margin-bottom: 0;
-                    }
-                }
-}
-        }
-
-
-        
-        .date_overlay_mobile {
-          display: none !important; }
-
-          
-    }
-
-/*Адаптивность для телефона*/
-@media (max-width: 768px) {
-  .con {
-    width: 100%;
-  height: auto;
+.con_event_info {
+  width: 100%;
+  background-color: #FBFBFB;
   display: flex;
   justify-content: center;
-  margin-top: 0px;
-    .con_event {
-         width: 100%;
-        height: 78vh;
-        overflow: hidden;
-        position: relative; 
+  padding: 30px 0;
 
-      .event_photo {
-        width: 309%;
-        height: 150%;
-        position: relative;
-        overflow: hidden;
-        right: 397px;
-        bottom: 180px;
+  .event_info {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%);
-          z-index: 1;
+    .info {
+      display: flex;
+      gap: 100px;
+      align-items: center;
+
+      .title_colum {
+        display: flex;
+        flex-direction: column;
+        
+        h1 {
+          @include h1_text();
+          margin-bottom: 5px;
         }
 
-        .event_img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
+        h3 {
+          @include h3_text();
+
         }
+      }
 
-        .date_overlay_mobile {
-             position: absolute;
-            z-index: 3;
-            bottom: 168px;
-            width: 264px;
-            height: 200px;
-            left: 418px;
-            text-align: left;
+      .details_colum {
+        display: flex;
+        gap: 70px;
+        
+        .detail_item {
+          display: flex;
+          flex-direction: column;
+          
+          .event_time {
+            @include event_time_text();
+            margin-bottom: 5px;
+          }
 
-          .colum {
-             display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: flex-start;
-
-            .event_time {
-                font-family: 'Inter';
-                  font-weight: 700;
-                  font-size: 18px;
-                  letter-spacing: 0.2px;
-                  color: #C4C4C4 ;
-                  z-index: 2;
-                  text-align: left;
-            }
-
-            .text_time_age {
-                 font-family: 'Inter';
-                  font-weight: 700;
-                  font-size: 36px;
-                  letter-spacing: 0.2px;
-                  color: #FFFFFF;
-                  z-index: 2;
-                  text-align: left !important;
-                  margin-bottom: 43px;
-            }
+          .text_time_age {
+            @include text_time_age();
           }
         }
       }
     }
-  }
 
-  .con_event_info {
-    width: 100%;
-    height: 96px;
-    padding: 32px 0;
+    .event_button {
+      button {
+        background-color: #f33737;
+        color: #FFFFFF;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 22px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
 
-    .name_premier_mobile {
-      display: block !important;
-      font-family: 'Inter';
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: 0.2px;
-      color: #282828;
-      text-align: center;
-      margin-bottom: 15px;
-      padding: 0 20px;
-    }
-
-    .event_info {
-      display: none !important;
-    }
-  }
-
-  .info_change {
-    .button_infor {
-      width: 100%;
-      max-width: 374px;
-      height: auto;
-      padding: 0 20px;
-
-      .tab_buttons {
-        margin-top: 20px;
-        margin-left: 0;
-        margin-right: 0;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-
-        &::before {
-          top: 1001px;
-          left: 0;
-          width: 100%;
-        }
-
-        &::after {
-          top: 1001px;
-          left: 0;
-          width: 50%;
-          height: 3px;
-        }
-
-        button {
-          font-size: 14px;
-          padding: 8px 12px;
-          flex: 1;
-          text-align: center;
+        &:hover {
+          background-color: #FFFFFF;
+          color: #f33737;
+          box-shadow: 0 0 0 2px #f33737;
         }
       }
-
-      .text_change {
-        margin-top: 30px;
-        margin-left: 0;
-        margin-right: 0;
-        font-size: 14px;
-        line-height: 1.6;
-        min-height: 300px;
-      }
     }
-  }
-
-  // Показываем кнопку "Купить билет" в мобильной версии
-  .event_button_mobile {
-    display: flex !important;
-    justify-content: center;
-    width: 100%;
-    height: 107px;
-    background-color: #FA434B;
-    transition: all 0.3s ease;
-
-    button {
-        background: none;
-      color: #FFFFFF;
-      border: none;
-      padding: 12px 30px;
-      font-family: 'Inter';
-      font-weight: 600;
-      font-size: 24px;
-      letter-spacing: 0.2px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        color: #f33737;
-      }
-    }
-    &:hover {
-        color: #f33737;
-        background-color: #ffffff;
-      }
   }
 }
 
-// Скрываем мобильную кнопку на десктопе
+// Мобильная информация
+.mobile_info {
+  display: none;
+}
+
+// Табы с информацией
+.info_change {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+
+  .button_infor {
+    width: 90%;
+    max-width: 1200px;
+
+    .tab_buttons {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      gap: clamp(50px, 20vw, 510px);
+
+      // Серая линия (фон)
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #E0E0E0;
+        z-index: 1;
+      }
+
+      // Красная линия (активная часть)
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 120px;
+        height: 2px;
+        background-color: #FA434B;
+        z-index: 2;
+        transition: transform 0.3s ease;
+      }
+
+      // Позиция красной линии для активной кнопки
+      &.About_the_performance_active::after {
+        transform: translateX(0);
+      }
+      
+      &.Group_active::after {
+        transform: translateX(calc(100% + 50px));
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 10px 0;
+        font-weight: 600;
+        font-size: 16px;
+        color: #282828;
+        cursor: pointer;
+        position: relative;
+        z-index: 3;
+
+        &.active {
+          color: #FA434B;
+        }
+      }
+    }
+
+    .text_change {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #282828;
+
+      p {
+        margin-bottom: 15px;
+      }
+      
+      .premiere-date {
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// Мобильная кнопка покупки билета
 .event_button_mobile {
   display: none;
+}
+
+// Мобильная информация поверх изображения
+.date_overlay_mobile {
+  display: none;
+}
+
+// Адаптивность для мобильных устройств (480px и меньше)
+@media (max-width: 480px) {
+  .con .con_event {
+    height: 718px;
+    
+    .event_photo {
+      position: relative;
+      
+      .event_img {
+        object-position: center top;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+        z-index: 1;
+      }
+    }
+  }
+  
+  // Скрываем десктоп элементы
+  .con_event_info {
+    display: none !important;
+  }
+  
+  // Показываем мобильные элементы
+  .mobile_info {
+    display: block;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    
+    .name_premier_mobile {
+      text-align: center;
+      
+      h1 {
+        font-weight: 700;
+        font-size: 30px;
+        color: #282828;
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+        font-family: 'Inter';
+      }
+      
+      h3 {
+        font-weight: 500;
+        font-size: 16px;
+        color: #282828;
+      }
+    }
+  }
+  
+  .date_overlay_mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: absolute;
+    bottom: 60px;
+    left: 16px;
+    color: white;
+    z-index: 2;
+
+    .colum {
+      .event_time {
+        font-weight: 700;
+        font-size: 18px;
+        color: #C4C4C4;
+        margin-bottom: 5px;
+        letter-spacing: 0.2px;
+      }
+
+      .text_time_age {
+        font-weight: 700;
+        font-size: 36px;
+        color: #FFFFFF;
+        letter-spacing: 0.2px;
+      }
+    }
+  }
+  
+  .event_button_mobile {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    background-color: #FA434B;
+    
+    button {
+      background: none;
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 40px;
+      font-weight: 600;
+      font-size: 24px;
+      cursor: pointer;
+      font-family: 'Inter';
+    }
+  }
+  
+  .info_change {
+    margin: 20px 0;
+    padding: 0 16px;
+    background-color: #FFFFFF;
+    
+    .button_infor {
+      width: 100%;
+      
+      .tab_buttons {
+        justify-content: space-around;
+        gap: 20px;
+        
+        // Убираем декоративные линии на мобильной версии
+        &::before,
+        &::after {
+          display: none;
+        }
+        
+        button {
+          padding: 8px 0;
+          font-size: 14px;
+          flex: 1;
+          text-align: center;
+          
+          // Добавляем подчеркивание для активной кнопки на мобильной версии
+          &.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background-color: #FA434B;
+          }
+        }
+      }
+      
+      .text_change {
+        font-size: 14px;
+        line-height: 1.5;
+        
+        p {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}
+
+// Промежуточные размеры (481px - 768px)
+@media (min-width: 481px) and (max-width: 768px) {
+  .con .con_event {
+    height: 450px;
+  }
+  
+  .con_event_info {
+    .event_info {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      
+      .info {
+        flex-direction: column;
+        gap: 30px;
+        
+        .details_colum {
+          gap: 50px;
+        }
+      }
+    }
+  }
+  
+  // Скрываем мобильные элементы
+  .mobile_info,
+  .date_overlay_mobile,
+  .event_button_mobile {
+    display: none !important;
+  }
+}
+
+// Большие экраны (769px+)
+@media (min-width: 769px) {
+  // Скрываем мобильные элементы
+  .mobile_info,
+  .date_overlay_mobile,
+  .event_button_mobile {
+    display: none !important;
+  }
 }

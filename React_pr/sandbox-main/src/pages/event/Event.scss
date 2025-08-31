@@ -3,9 +3,13 @@ $font_main: "Inter";
 $color_main: #282828;
 $color_main1: #ffffff;
 $color_main2: #818181;
+$color_main3:#f33737;
+$color_main4:#E0E0E0 ;
+$color_main5: #FA434B;
+$color_main6:#C4C4C4;
 
 body {
-  background-color: #ffffff;
+  background-color: $color_main1;
   font-family: 'Inter', sans-serif;
 }
 
@@ -43,6 +47,24 @@ body {
   letter-spacing: 0.2px;
   color: $color_main;
 
+}
+
+@mixin event_button{
+  background-color: $color_main3 ;
+  color: $color_main1;
+  border-radius: 22px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 100%;
+}
+
+@mixin button_change{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  color: $color_main;
 }
 
 .event-page {
@@ -139,32 +161,28 @@ body {
 
     .event_button {
       button {
-        background-color: #f33737;
-        color: #FFFFFF;
+        @include event_button();
         border: none;
         padding: 12px 30px;
-        border-radius: 22px;
-        font-weight: 600;
-        font-size: 16px;
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
-          background-color: #FFFFFF;
-          color: #f33737;
-          box-shadow: 0 0 0 2px #f33737;
+          background-color: $color_main1;
+          color: $color_main3;
+          box-shadow: 0 0 0 2px $color_main3;
         }
       }
     }
   }
 }
 
-// Мобильная информация
+
 .mobile_info {
   display: none;
 }
 
-// Табы с информацией
+
 .info_change {
   width: 100%;
   display: flex;
@@ -191,7 +209,7 @@ body {
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #E0E0E0;
+        background-color:$color_main4;
         z-index: 1;
       }
 
@@ -203,12 +221,12 @@ body {
         left: 0;
         width: 120px;
         height: 2px;
-        background-color: #FA434B;
+        background-color: $color_main5;
         z-index: 2;
         transition: transform 0.3s ease;
       }
 
-      // Позиция красной линии для активной кнопки
+     
       &.About_the_performance_active::after {
         transform: translateX(0);
       }
@@ -218,18 +236,16 @@ body {
       }
 
       button {
+        @include button_change();
         background: none;
         border: none;
         padding: 10px 0;
-        font-weight: 600;
-        font-size: 16px;
-        color: #282828;
         cursor: pointer;
         position: relative;
         z-index: 3;
 
         &.active {
-          color: #FA434B;
+          color: $color_main5;
         }
       }
     }
@@ -237,7 +253,7 @@ body {
     .text_change {
       font-size: 16px;
       line-height: 1.6;
-      color: #282828;
+      color: $color_main;
 
       p {
         margin-bottom: 15px;
@@ -261,7 +277,7 @@ body {
   display: none;
 }
 
-// Адаптивность для мобильных устройств (480px и меньше)
+
 @media (max-width: 480px) {
   .con .con_event {
     height: 718px;
@@ -286,12 +302,12 @@ body {
     }
   }
   
-  // Скрываем десктоп элементы
+ 
   .con_event_info {
     display: none !important;
   }
   
-  // Показываем мобильные элементы
+ 
   .mobile_info {
     display: block;
     padding: 30px 20px;
@@ -324,14 +340,14 @@ body {
     position: absolute;
     bottom: 60px;
     left: 16px;
-    color: white;
+    color: $color_main1;
     z-index: 2;
 
     .colum {
       .event_time {
         font-weight: 700;
         font-size: 18px;
-        color: #C4C4C4;
+        color: $color_main6;
         margin-bottom: 5px;
         letter-spacing: 0.2px;
       }
@@ -339,7 +355,7 @@ body {
       .text_time_age {
         font-weight: 700;
         font-size: 36px;
-        color: #FFFFFF;
+        color: $color_main1;
         letter-spacing: 0.2px;
       }
     }
@@ -349,24 +365,23 @@ body {
     display: flex;
     justify-content: center;
     padding: 30px 0;
-    background-color: #FA434B;
+    background-color: $color_main5;
     
     button {
       background: none;
-      color: #FFFFFF;
+      color: $color_main1;
       border: none;
       padding: 12px 40px;
       font-weight: 600;
       font-size: 24px;
       cursor: pointer;
-      font-family: 'Inter';
     }
   }
   
   .info_change {
     margin: 20px 0;
     padding: 0 16px;
-    background-color: #FFFFFF;
+    background-color: $color_main1;
     
     .button_infor {
       width: 100%;
@@ -375,7 +390,7 @@ body {
         justify-content: space-around;
         gap: 20px;
         
-        // Убираем декоративные линии на мобильной версии
+        
         &::before,
         &::after {
           display: none;
@@ -387,7 +402,7 @@ body {
           flex: 1;
           text-align: center;
           
-          // Добавляем подчеркивание для активной кнопки на мобильной версии
+          
           &.active::after {
             content: '';
             position: absolute;
@@ -396,7 +411,7 @@ body {
             transform: translateX(-50%);
             width: 80%;
             height: 2px;
-            background-color: #FA434B;
+            background-color: $color_main5;
           }
         }
       }
@@ -436,7 +451,7 @@ body {
     }
   }
   
-  // Скрываем мобильные элементы
+  
   .mobile_info,
   .date_overlay_mobile,
   .event_button_mobile {
@@ -444,9 +459,9 @@ body {
   }
 }
 
-// Большие экраны (769px+)
+
 @media (min-width: 769px) {
-  // Скрываем мобильные элементы
+  
   .mobile_info,
   .date_overlay_mobile,
   .event_button_mobile {

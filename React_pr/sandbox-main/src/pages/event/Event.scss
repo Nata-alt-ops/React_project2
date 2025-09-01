@@ -71,6 +71,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   background-color: #ffffff;
+  height: 100%;
 }
 
 // Контейнер с изображением (десктоп версия)
@@ -254,6 +255,7 @@ body {
       font-size: 16px;
       line-height: 1.6;
       color: $color_main;
+      background-color: $color_main1;
 
       p {
         margin-bottom: 15px;
